@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Bolas de hidrogel decorativas",
-  "foto": "/img/hidrogel.webp",
   "precio": 13400,
   "precio_antes": 16700,
   "categoria": "home",
@@ -22,5 +21,8 @@
     "For vases, centrepieces and crafts",
     "Assorted colours",
     "Easy to use"
+  ],
+  "fotos": [
+    "/img/hidrogel.webp"
   ]
 }

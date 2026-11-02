@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Artículo de prueba (no comprar)",
-  "foto": "",
   "precio": 5000,
   "precio_antes": 6250,
   "categoria": "home",
@@ -18,5 +17,6 @@
   "caracteristicas_en": [
     "Payment test product",
     "No item is shipped"
-  ]
+  ],
+  "fotos": []
 }

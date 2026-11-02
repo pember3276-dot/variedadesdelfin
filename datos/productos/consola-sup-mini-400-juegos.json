@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Consola SUP Mini 400 juegos",
-  "foto": "/img/sup.webp",
   "precio": 30000,
   "precio_antes": 37500,
   "categoria": "toys",
@@ -26,5 +25,8 @@
     "Rechargeable battery",
     "Connects to the TV, AV and charging cables included",
     "Compact and portable"
+  ],
+  "fotos": [
+    "/img/sup.webp"
   ]
 }

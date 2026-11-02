@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Hidrolavadora portátil doble batería 48V",
-  "foto": "/img/hidrolavadora.webp",
   "precio": 64000,
   "precio_antes": 80000,
   "categoria": "tools",
@@ -26,5 +25,8 @@
     "Nozzles and accessories",
     "Portable, no tap connection needed",
     "Storage case"
+  ],
+  "fotos": [
+    "/img/hidrolavadora.webp"
   ]
 }

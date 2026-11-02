@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Cafetera Sokany 6 tazas",
-  "foto": "/img/cafetera.webp",
   "precio": 120000,
   "precio_antes": 150000,
   "categoria": "home",
@@ -26,5 +25,8 @@
     "Programmable",
     "Keeps a constant temperature",
     "Easy to use"
+  ],
+  "fotos": [
+    "/img/cafetera.webp"
   ]
 }

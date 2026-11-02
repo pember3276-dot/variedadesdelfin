@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Máquina para cortar cabello VGR V-052",
-  "foto": "/img/vgr.webp",
   "precio": 37400,
   "precio_antes": 46700,
   "categoria": "care",
@@ -26,5 +25,8 @@
     "Corded (USB) or cordless",
     "Ergonomic design",
     "Includes USB cable, cleaning brush, oil and 4 guide combs"
+  ],
+  "fotos": [
+    "/img/vgr.webp"
   ]
 }

@@ -31,7 +31,7 @@ PRODUCTS.forEach(p => { p.flash = !!p.antes; });
 const pct = p => Math.round((1 - p.p/p.antes)*100);
 
 const S = {
-  es:{all:"Todo",flash:"Ofertas flash",add:"Agregar",inCart:n=>`En pedido (${n})`,addMore:n=>`En pedido (${n}) · agregar otro`,addLong:"Agregar al pedido",detail:"Ver detalle",see:"Ver detalle de",
+  es:{all:"Todo",flash:"Ofertas flash",add:"Agregar",inCart:n=>`En pedido (${n})`,addMore:n=>`En pedido (${n}) · agregar otro`,addLong:"Agregar al pedido",photos:"fotos",photoN:(i,n)=>`Foto ${i} de ${n}`,videoN:i=>`Video ${i}`,detail:"Ver detalle",see:"Ver detalle de",
       catFlash:"Oferta flash · ",confirm:"Confirmamos disponibilidad y colores por WhatsApp.",each:"c/u",less:"Quitar uno",more:"Agregar uno",
       hello:"Hola Variedades Delfín, quiero hacer este pedido:",proof:"📎 Adjunto el comprobante de pago para validarlo con el banco.",proofHint:"Paga primero y adjunta aquí el pantallazo o comprobante. Es obligatorio para enviar el pedido: lo verificamos con el banco y te confirmamos el despacho.",errProof:"Adjunta el comprobante de pago (foto o PDF) para enviar el pedido.",errBig:"El archivo pesa más de 10 MB. Envía un pantallazo más liviano.",shareTip:"Elige WhatsApp y el chat de Variedades Delfín (310 379 0554). El comprobante va junto al pedido.",manual:"Tu dispositivo no permite adjuntar desde la web: se abrirá el chat con el pedido; adjunta ahí el comprobante con el clip 📎 antes de enviar.",tot:"Total productos",
       boldPay:"Continuar al pago con PSE o tarjeta",boldWait:"Abriendo la pasarela segura de Bold…",boldReady:"Te llevamos a Bold para pagar con PSE o tarjeta. Si no se abre, pulsa el botón de Bold. Al terminar vuelves aquí para enviar el pedido por WhatsApp.",
@@ -42,7 +42,7 @@ const S = {
             home:"El valor del domicilio depende de la zona y la hora y se suma al total. Te lo confirmamos por WhatsApp antes de enviar.",
             app:"Tú pides el servicio en DiDi Moto u otra app y pagas su tarifa directamente. Te avisamos cuando el pedido esté listo para recoger."},
       locale:"es-CO"},
-  en:{all:"All",flash:"Flash deals",add:"Add",inCart:n=>`In order (${n})`,addMore:n=>`In order (${n}) · add another`,addLong:"Add to order",detail:"See details",see:"See details of",
+  en:{all:"All",flash:"Flash deals",add:"Add",inCart:n=>`In order (${n})`,addMore:n=>`In order (${n}) · add another`,addLong:"Add to order",photos:"photos",photoN:(i,n)=>`Photo ${i} of ${n}`,videoN:i=>`Video ${i}`,detail:"See details",see:"See details of",
       catFlash:"Flash deal · ",confirm:"We confirm stock and colours on WhatsApp.",each:"each",less:"Remove one",more:"Add one",
       hello:"Hi Variedades Delfín, I'd like to place this order:",proof:"📎 Payment receipt attached for bank verification.",proofHint:"Pay first and attach the screenshot or receipt here. It is required to send the order: we verify it with the bank and confirm dispatch.",errProof:"Attach the payment receipt (photo or PDF) to send the order.",errBig:"The file is larger than 10 MB. Please send a lighter screenshot.",shareTip:"Choose WhatsApp and the Variedades Delfín chat (+57 310 379 0554). The receipt goes with the order.",manual:"Your device can't attach from the web: the chat will open with your order; attach the receipt there with the 📎 clip before sending.",tot:"Products total",
       boldPay:"Continue to PSE or card payment",boldWait:"Opening the secure Bold checkout…",boldReady:"Taking you to Bold to pay with PSE or card. If it doesn't open, tap the Bold button. You'll come back here to send your order on WhatsApp.",
@@ -62,6 +62,40 @@ const esc = t => String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"
 const N = p => p.n[L], D = p => p.d[L];
 const priceHTML = p => p.antes ? `<span class="price"><s class="was"><span class="sr">${L==="en"?"Before":"Antes"} </span>${fmt(p.antes)}</s>${fmt(p.p)}</span>` : `<span class="price">${fmt(p.p)}</span>`;
 const picHTML = (p, eager) => !p.img ? GIFT : `<img src="${p.img}" alt="${esc(N(p))}" width="400" height="400" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
+// Etiqueta "4 fotos · video" en la tarjeta (igual que scripts/catalogo.py).
+const pillHTML = p => { const a=[]; if((p.g||[]).length>1) a.push(`${p.g.length} ${S.photos}`); if((p.v||[]).length) a.push("video"); return a.length?`<span class="nmedia">${a.join(" · ")}</span>`:""; };
+// Galería del detalle: fotos y videos que se deslizan con el dedo; miniaturas debajo.
+const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg>';
+function galHTML(p){
+  const fotos = p.g || (p.img ? [p.img] : []), vids = p.v || [];
+  const n = fotos.length + vids.length;
+  if(n < 2 && !vids.length) return picHTML(p, true);
+  const alt = esc(N(p));
+  const slides = fotos.map((u,i)=>`<li class="slide"><img src="${u}" alt="${i?S.photoN(i+1,fotos.length)+" · ":""}${alt}" width="1000" height="1000" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async"></li>`)
+    .concat(vids.map((v,i)=>`<li class="slide"><video controls playsinline preload="none"${v.poster?` poster="${v.poster}"`:""} aria-label="${S.videoN(i+1)} · ${alt}"><source src="${v.src}" type="video/mp4"></video></li>`));
+  const thumbs = fotos.map((u,i)=>`<button type="button" data-i="${i}" aria-label="${S.photoN(i+1,fotos.length)}"><img src="${u.replace(/-g\.webp$/,".webp")}" alt="" loading="lazy" decoding="async"></button>`)
+    .concat(vids.map((v,i)=>`<button type="button" data-i="${fotos.length+i}" aria-label="${S.videoN(i+1)}">${v.poster?`<img src="${v.poster}" alt="" loading="lazy" decoding="async">`:""}<span class="play">${PLAY}</span></button>`));
+  return `<ul class="gal" id="gal">${slides.join("")}</ul><div class="thumbs" id="thumbs">${thumbs.join("")}</div>`;
+}
+let galId = null, galObs = null;
+function galSetup(){
+  const g = $("gal"), t = $("thumbs"); if(!g) return;
+  const marcar = i => t.querySelectorAll("button").forEach((b,k)=>b.setAttribute("aria-current", k===i ? "true" : "false"));
+  marcar(0);
+  t.onclick = e => { const b=e.target.closest("button"); if(!b) return;
+    const slide = g.children[+b.dataset.i];
+    g.scrollTo({left: slide.offsetLeft, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); };
+  if(galObs) galObs.disconnect();
+  if("IntersectionObserver" in window){
+    galObs = new IntersectionObserver(es => es.forEach(en => {
+      const i = [...g.children].indexOf(en.target);
+      if(en.isIntersecting && en.intersectionRatio > .6) marcar(i);
+      else { const v = en.target.querySelector("video"); if(v && !v.paused) v.pause(); }  // video fuera de vista: pausa
+    }), {root: g, threshold: [0, .6]});
+    [...g.children].forEach(li => galObs.observe(li));
+  }
+}
+const galStop = () => document.querySelectorAll("#gal video").forEach(v => v.pause());
 
 let cart = {};
 try { cart = JSON.parse(localStorage.getItem("delfin-cart") || "{}") || {}; } catch(e) {}
@@ -74,7 +108,7 @@ function renderFilters(){ $("filters").innerHTML = cats.map(c=>`<button type="bu
 function renderGrid(){
   $("grid").innerHTML = PRODUCTS.filter(p => cat==="all" || p.c===cat || (cat==="flash" && p.flash)).map((p,i) => `
     <article class="card">
-      <button type="button" class="pic" data-detail="${p.id}" aria-label="${S.see} ${esc(N(p))}">${p.antes?`<span class="tag">Flash −${pct(p)}%</span>`:""}${picHTML(p, i<2)}</button>
+      <button type="button" class="pic" data-detail="${p.id}" aria-label="${S.see} ${esc(N(p))}">${p.antes?`<span class="tag">Flash −${pct(p)}%</span>`:""}${picHTML(p, i<2)}${pillHTML(p)}</button>
       <div class="info"><h3><button type="button" data-detail="${p.id}">${esc(N(p))}</button></h3><p>${esc(D(p))}</p>
         <button type="button" class="more" data-detail="${p.id}">${S.detail}</button>
         <div class="row">${priceHTML(p)}<button type="button" class="add${cart[p.id]?" done":""}" data-id="${p.id}">${cart[p.id]?S.inCart(cart[p.id]):S.add}</button></div>
@@ -83,7 +117,7 @@ function renderGrid(){
 }
 function openDetail(id){
   const p = PRODUCTS.find(x=>x.id==id); if(!p) return;
-  $("dpic").innerHTML = picHTML(p, true);
+  if(galId !== p.id || !$("detail").open){ galStop(); $("dpic").innerHTML = galHTML(p); $("dpic").classList.toggle("multi", !!$("gal")); galId = p.id; galSetup(); }
   $("dbody").innerHTML = `<span class="cat">${p.antes?S.catFlash:""}${(CAT[p.c]||{})[L]}</span><h3 id="dtitle">${esc(N(p))}</h3><p class="hint" style="font-size:15px">${esc(D(p))}</p>
     <ul>${p.f[L].map(t=>`<li>${esc(t)}</li>`).join("")}</ul>${priceHTML(p)}
     <button type="button" class="add${cart[p.id]?" done":""}" data-id="${p.id}" style="padding:12px 16px;font-size:16px">${cart[p.id]?S.addMore(cart[p.id]):S.addLong}</button>
@@ -198,5 +232,6 @@ $("send").addEventListener("click",e=>{
   }
 });
 $("dclose").addEventListener("click",()=>$("detail").close());
+$("detail").addEventListener("close",()=>{ galStop(); galId = null; });
 $("detail").addEventListener("click",e=>{ if(e.target.id==="detail"){ $("detail").close(); return; } const b=e.target.closest(".add"); if(b){ bump(b.dataset.id); openDetail(b.dataset.id); } });
 renderFilters(); renderGrid(); renderCart();

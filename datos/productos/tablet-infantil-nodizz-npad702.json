@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Tablet infantil Nodizz NPAD702",
-  "foto": "/img/tablet.webp",
   "precio": 293400,
   "precio_antes": 366700,
   "categoria": "tech",
@@ -30,5 +29,8 @@
     "Parental controls",
     "Protective case with stand",
     "Includes toy gun, stylus, stickers, ruler and strap"
+  ],
+  "fotos": [
+    "/img/tablet.webp"
   ]
 }

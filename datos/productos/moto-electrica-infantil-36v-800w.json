@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Moto eléctrica infantil 36V 800W",
-  "foto": "/img/moto.webp",
   "precio": 1733400,
   "precio_antes": 2166700,
   "categoria": "toys",
@@ -28,5 +27,8 @@
     "Holds up to 80 kg",
     "2.5-10 rims, mechanical disc brakes and suspension",
     "Available in 4 colours"
+  ],
+  "fotos": [
+    "/img/moto.webp"
   ]
 }

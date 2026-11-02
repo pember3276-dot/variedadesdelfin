@@ -8,6 +8,11 @@ banner de cookies con Google Consent Mode v2 y PWA instalable.
   (config en `.pages.yml`). El Action `Catálogo` (`scripts/catalogo.py`) regenera `assets/productos.js`, el bloque PRECIOS
   de `assets/tienda.js` (lo lee el Worker de Bold), las fotos `img/p/` y las tarjetas de `index.html` / `en/index.html`.
   Orden en la web: destacados primero y luego los más nuevos. No editar esas partes a mano. Los costos NO van en el repo.
+- Fotos y videos: cada producto tiene `fotos` (hasta 8; la primera es la de la tarjeta) y `videos` (hasta 2). El script deja
+  cada foto cuadrada y pareja (recorta bordes blancos o rellena) en `img/p/<nombre>.webp` (600 px) y `-g.webp` (1000 px, galería),
+  reduce originales de más de 1600 px y convierte los videos con ffmpeg a `img/v/*.mp4` (H.264 720p, máx. 30 s, ≤12 MB) con
+  portada `.webp`; el original pesado se borra y el JSON queda apuntando a la versión liviana. En la web, el detalle muestra una
+  galería deslizable con miniaturas; los videos no se cargan hasta que el cliente los reproduce.
 - Pagos PSE/tarjeta con Bold: `bold/` (Worker que firma el cobro; ver `bold/README.md`) y página de regreso `/pago/`.
 - Estilos: `assets/site.css`. Cookies, WhatsApp y PWA: `assets/app.js`, `sw.js`.
 

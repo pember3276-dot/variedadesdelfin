@@ -1,11 +1,12 @@
 // PWA: páginas desde la red (con copia offline), recursos estáticos desde caché.
-const V = "delfin-v7";
-const CORE = ["/", "/en/", "/assets/site.css?v=6", "/assets/logo.svg", "/assets/fonts/nunito.woff2", "/assets/app.js", "/assets/tienda.js", "/icons/icon-192.png", "/offline.html"];
+const V = "delfin-v8";
+const CORE = ["/", "/en/", "/assets/site.css?v=7", "/assets/logo.svg", "/assets/fonts/nunito.woff2", "/assets/app.js", "/assets/tienda.js", "/icons/icon-192.png", "/offline.html"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {
   const r = e.request; if (r.method !== "GET") return;
   const u = new URL(r.url); if (u.origin !== location.origin) return;
+  if (/\.(mp4|webm)$/.test(u.pathname)) return; // videos: directo a la red (piden por partes)
   if (r.mode === "navigate") {
     e.respondWith(fetch(r).then(res => { const cp = res.clone(); caches.open(V).then(c => c.put(r, cp)); return res; })
       .catch(() => caches.match(r).then(m => m || caches.match("/offline.html"))));

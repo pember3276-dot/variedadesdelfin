@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Rifle eléctrico de bolas de gel",
-  "foto": "",
   "precio": 120000,
   "precio_antes": 150000,
   "categoria": "toys",
@@ -26,5 +25,6 @@
     "Black and red design",
     "Accessories included",
     "Recommended for ages 14+"
-  ]
+  ],
+  "fotos": []
 }

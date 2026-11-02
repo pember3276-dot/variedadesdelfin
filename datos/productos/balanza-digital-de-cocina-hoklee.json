@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Balanza digital de cocina Hoklee",
-  "foto": "/img/balanza.webp",
   "precio": 26800,
   "precio_antes": 33400,
   "categoria": "home",
@@ -26,5 +25,8 @@
     "Tare function",
     "Runs on 2 AAA batteries",
     "Slim, easy-to-clean design"
+  ],
+  "fotos": [
+    "/img/balanza.webp"
   ]
 }
