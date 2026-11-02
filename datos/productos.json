@@ -456,11 +456,11 @@
     ]
   },
   {
+    "id": "1000",
     "publicado": false,
     "nombre": "mini altavoz",
     "foto": "/img/subidas/mini altavoz-1.jpg",
     "categoria": "misc",
-    "pedir_sugerencia": true,
-    "id": "1000"
+    "pedir_sugerencia": true
   }
 ]
