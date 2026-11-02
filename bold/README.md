@@ -27,4 +27,4 @@ o se usa la opción "Link de pago por WhatsApp" con el valor total.
 4. Probar con las llaves de **pruebas** y luego cambiar las dos variables del Worker a las de **producción** (la página no cambia).
 
 Los precios que lee el Worker están en el bloque `PRECIOS` de `tienda.js` (`{id:N,c:"…",p:PRECIO}` y `DCTO_FLASH = 0`, precio final).
-Lo regenera `scripts/catalogo.py` desde `datos/productos.json` cada vez que se guarda un producto en el panel; no editarlo a mano.
+Lo regenera `scripts/catalogo.py` desde `datos/productos/` cada vez que se guarda un producto en el panel; no editarlo a mano.

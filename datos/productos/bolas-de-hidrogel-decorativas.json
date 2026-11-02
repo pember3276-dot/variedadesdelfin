@@ -1,0 +1,26 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Bolas de hidrogel decorativas",
+  "foto": "/img/hidrogel.webp",
+  "precio": 13400,
+  "precio_antes": 16700,
+  "categoria": "home",
+  "descripcion": "Crecen al hidratarse. Para floreros, centros de mesa y manualidades. Varios colores.",
+  "caracteristicas": [
+    "Bolitas que absorben agua y crecen",
+    "Para floreros, centros de mesa y manualidades",
+    "Varios colores disponibles",
+    "Fáciles de usar"
+  ],
+  "id": "115",
+  "creado": "2026-11-01T12:07",
+  "nombre_en": "Decorative water beads",
+  "descripcion_en": "They grow in water. For vases, centrepieces and crafts. Assorted colours.",
+  "caracteristicas_en": [
+    "Beads absorb water and grow",
+    "For vases, centrepieces and crafts",
+    "Assorted colours",
+    "Easy to use"
+  ]
+}

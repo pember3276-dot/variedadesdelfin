@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Smart TV 40\" Full HD Premium Gold",
+  "foto": "/img/tv.webp",
+  "precio": 1066800,
+  "precio_antes": 1333400,
+  "categoria": "tech",
+  "descripcion": "Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.",
+  "caracteristicas": [
+    "Smart TV con Whale TV: Netflix, YouTube, Prime Video y más",
+    "Conexión Bluetooth con dispositivos externos",
+    "Entrada USB y HDMI",
+    "Sonido Hi-Fi",
+    "Doble control universal",
+    "Modelo 2026"
+  ],
+  "id": "106",
+  "creado": "2026-11-01T12:16",
+  "nombre_en": "40\" Full HD Smart TV Premium Gold",
+  "descripcion_en": "Whale TV with Netflix, YouTube and more. Bluetooth, USB, HDMI, Hi-Fi sound and two universal remotes.",
+  "caracteristicas_en": [
+    "Smart TV with Whale TV: Netflix, YouTube, Prime Video and more",
+    "Bluetooth connection to external devices",
+    "USB and HDMI inputs",
+    "Hi-Fi sound",
+    "Two universal remotes",
+    "2026 model"
+  ]
+}

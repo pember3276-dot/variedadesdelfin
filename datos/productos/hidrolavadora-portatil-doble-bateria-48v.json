@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Hidrolavadora portátil doble batería 48V",
+  "foto": "/img/hidrolavadora.webp",
+  "precio": 64000,
+  "precio_antes": 80000,
+  "categoria": "tools",
+  "descripcion": "Dos baterías recargables, cargador, manguera de extensión, boquillas y maleta.",
+  "caracteristicas": [
+    "Dos baterías recargables de 48 V",
+    "Cargador de baterías",
+    "Manguera de extensión",
+    "Boquillas y accesorios",
+    "Uso portátil, sin conexión a la llave",
+    "Maleta de guardado"
+  ],
+  "id": "111",
+  "creado": "2026-11-01T12:11",
+  "nombre_en": "Portable 48V pressure washer, two batteries",
+  "descripcion_en": "Two rechargeable batteries, charger, extension hose, nozzles and carry case.",
+  "caracteristicas_en": [
+    "Two 48 V rechargeable batteries",
+    "Battery charger",
+    "Extension hose",
+    "Nozzles and accessories",
+    "Portable, no tap connection needed",
+    "Storage case"
+  ]
+}

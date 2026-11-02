@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Máquina para cortar cabello VGR V-052",
+  "foto": "/img/vgr.webp",
+  "precio": 37400,
+  "precio_antes": 46700,
+  "categoria": "care",
+  "descripcion": "Cuchillas de acero, ajuste de longitud, batería recargable, uso con o sin cable USB. Incluye 4 peines guía.",
+  "caracteristicas": [
+    "Cuchillas de acero inoxidable para un corte preciso",
+    "Ajuste de longitud para diferentes estilos",
+    "Batería recargable",
+    "Uso con cable USB o inalámbrico",
+    "Diseño ergonómico",
+    "Incluye cable USB, cepillo de limpieza, aceite lubricante y 4 peines guía"
+  ],
+  "id": "103",
+  "creado": "2026-11-01T12:04",
+  "nombre_en": "VGR V-052 hair clipper",
+  "descripcion_en": "Steel blades, length adjustment, rechargeable battery, corded (USB) or cordless. 4 guide combs included.",
+  "caracteristicas_en": [
+    "Stainless steel blades for a precise cut",
+    "Length adjustment for different styles",
+    "Rechargeable battery",
+    "Corded (USB) or cordless",
+    "Ergonomic design",
+    "Includes USB cable, cleaning brush, oil and 4 guide combs"
+  ]
+}
