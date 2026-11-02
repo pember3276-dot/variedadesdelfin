@@ -1,5 +1,5 @@
 # Panel de productos (Pages CMS: https://app.pagescms.org).
-# Lo que se guarda aquí va a datos/productos.json; el Action "Catálogo" actualiza la web.
+# Cada producto es un archivo en datos/productos/. El Action "Catálogo" actualiza la web al guardar.
 media:
   input: img/subidas
   output: /img/subidas
@@ -8,40 +8,32 @@ media:
 content:
   - name: productos
     label: Productos
-    type: file
-    path: datos/productos.json
+    type: collection
+    path: datos/productos
     format: json
-    list: true
+    filename: "{fields.nombre}.json"
+    view:
+      primary: nombre
+      fields: [nombre, precio, publicado, destacado]
+      search: [nombre]
+      sort: [creado, nombre, precio]
+      default:
+        sort: creado
+        order: desc
     fields:
-      - name: id
-        label: Código
-        type: string
-        hidden: true
-      - name: publicado
-        label: Publicado en la web
-        type: boolean
-        default: false
-        description: Déjalo apagado mientras revisas. Actívalo cuando el precio y la descripción estén listos.
       - name: nombre
-        label: Nombre del producto
+        label: Nombre
         type: string
         required: true
       - name: foto
         label: Foto
         type: image
-        description: Toma la foto con fondo claro. La web la recorta y la optimiza sola.
       - name: precio
-        label: Tu precio de venta (pesos)
+        label: Precio (pesos, sin puntos)
         type: number
+        required: true
         options:
           min: 0
-        description: Lo que paga el cliente. Escríbelo sin puntos, por ejemplo 45000.
-      - name: precio_antes
-        label: Precio antes (opcional, sale tachado)
-        type: number
-        options:
-          min: 0
-        description: Si lo llenas con un valor mayor, el producto sale como Oferta flash con el descuento.
       - name: categoria
         label: Categoría
         type: select
@@ -60,42 +52,28 @@ content:
             - { name: care, label: Cuidado personal }
             - { name: misc, label: Variedades }
       - name: descripcion
-        label: Descripción corta
+        label: Descripción
         type: text
-        description: Una o dos frases sobre el producto (tamaño, material, para quién es).
-      - name: caracteristicas
-        label: Características
-        type: string
-        list: true
-      - name: pedir_sugerencia
-        label: Sugerir descripción y precio con IA
+      - name: publicado
+        label: Mostrar en la tienda
+        type: boolean
+        default: true
+      - name: destacado
+        label: Destacado (sale de primero)
         type: boolean
         default: false
-        hidden: true
-        description: Al guardar, mira la foto, busca precios en tiendas de Colombia y llena la descripción y el precio de referencia. Se apaga sola cuando termina.
-      - name: sugerencia
-        label: Sugerencia de precio (solo referencia)
-        type: object
-        readonly: true
-        hidden: true
-        fields:
-          - name: precio_referencia
-            label: Precio de referencia en la web (pesos)
-            type: number
-          - name: fuentes
-            label: Dónde se encontró
-            type: string
-            list: true
-          - name: nota
-            label: Nota
-            type: text
-      - name: nombre_en
-        label: Nombre en inglés (opcional)
-        type: string
-      - name: descripcion_en
-        label: Descripción en inglés (opcional)
-        type: text
-      - name: caracteristicas_en
-        label: Características en inglés (opcional)
+      - name: precio_antes
+        label: Precio antes (opcional, sale tachado como oferta)
+        type: number
+        options:
+          min: 0
+      - name: caracteristicas
+        label: Detalles (opcional)
         type: string
         list: true
+      # Campos internos: no se muestran en el panel, pero se conservan.
+      - { name: id, type: string, hidden: true }
+      - { name: creado, type: string, hidden: true }
+      - { name: nombre_en, type: string, hidden: true }
+      - { name: descripcion_en, type: text, hidden: true }
+      - { name: caracteristicas_en, type: string, list: true, hidden: true }

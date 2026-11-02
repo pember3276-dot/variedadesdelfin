@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Parlante Booms Box 3",
+  "foto": "/img/parlante.webp",
+  "precio": 160000,
+  "precio_antes": 200000,
+  "categoria": "tech",
+  "descripcion": "Bluetooth, USB y micro SD, doble bajo, resistente a salpicaduras, batería de larga duración.",
+  "caracteristicas": [
+    "Conexión Bluetooth",
+    "Entrada USB y micro SD",
+    "Doble bajo incorporado",
+    "Panel de control de volumen y música",
+    "Resistente a salpicaduras",
+    "Batería recargable de larga duración"
+  ],
+  "id": "109",
+  "creado": "2026-11-01T12:13",
+  "nombre_en": "Booms Box 3 speaker",
+  "descripcion_en": "Bluetooth, USB and micro SD, dual bass, splash resistant, long-lasting battery.",
+  "caracteristicas_en": [
+    "Bluetooth connection",
+    "USB and micro SD input",
+    "Built-in dual bass",
+    "Volume and music controls",
+    "Splash resistant",
+    "Long-lasting rechargeable battery"
+  ]
+}

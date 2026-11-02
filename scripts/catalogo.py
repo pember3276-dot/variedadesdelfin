@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Arma el catálogo de la web a partir de datos/productos.json (lo que edita el panel).
+"""Arma el catálogo de la web a partir de datos/productos/*.json (un archivo por producto, lo edita el panel).
 
 - Convierte las fotos subidas desde el celular a WebP cuadrado (img/p/*.webp).
 - Escribe assets/productos.js (lo lee assets/tienda.js).
 - Actualiza en index.html y en/index.html: filtros, tarjetas prerenderizadas (SEO y
   velocidad), el JSON-LD ItemList y la versión de productos.js para el caché.
 
-Solo entran a la web los productos con "publicado": true, nombre y precio.
+Solo entran a la web los productos con "publicado": true, nombre y precio. Orden: destacados y luego los más nuevos.
 Uso: python3 scripts/catalogo.py   (desde la raíz del repo)
 """
-import hashlib, html, json, os, re, sys
+import hashlib, html, json, os, re, sys, time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "datos", "productos.json")
+DATA = os.path.join(ROOT, "datos", "productos")
 SITE = "https://variedadesdelfin.com"
 LADO = 600  # px de las fotos convertidas
 
@@ -71,22 +71,36 @@ def entero(v):
         return 0
 
 
+def guardar(ruta, d):
+    with open(ruta, "w", encoding="utf-8") as f:
+        json.dump(d, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
+
 def cargar():
-    with open(DATA, encoding="utf-8") as f:
-        datos = json.load(f)
-    # Código fijo para cada producto nuevo (lo usa el carrito del cliente).
-    usados = {str(d.get("id")) for d in datos if d.get("id")}
+    datos = []
+    for fn in sorted(os.listdir(DATA)):
+        if fn.endswith(".json"):
+            ruta = os.path.join(DATA, fn)
+            with open(ruta, encoding="utf-8") as f:
+                datos.append((ruta, json.load(f)))
+    # Código fijo (lo usa el carrito) y fecha de creación para cada producto nuevo.
+    usados = {str(d.get("id")) for _, d in datos if d.get("id")}
     sig = max([int(i) for i in usados if i.isdigit()] + [100]) + 1
-    nuevos = 0
-    for d in datos:
+    ahora = time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime())
+    for ruta, d in datos:
+        cambio = False
         if not d.get("id"):
             while str(sig) in usados:
                 sig += 1
-            d["id"] = str(sig); usados.add(d["id"]); nuevos += 1
-    if nuevos:
-        with open(DATA, "w", encoding="utf-8") as f:
-            json.dump(datos, f, ensure_ascii=False, indent=2)
-            f.write("\n")
+            d["id"] = str(sig); usados.add(d["id"]); cambio = True
+        if not d.get("creado"):
+            d["creado"] = ahora; cambio = True
+        if cambio:
+            guardar(ruta, d)
+    # Destacados primero; dentro de cada grupo, los más nuevos arriba.
+    datos = sorted((d for _, d in datos), key=lambda d: str(d.get("creado")), reverse=True)
+    datos = [d for d in datos if d.get("destacado")] + [d for d in datos if not d.get("destacado")]
     items = []
     for d in datos:
         nombre = (d.get("nombre") or "").strip()
@@ -182,7 +196,7 @@ def sub1(pat, repl, s, que):
 
 def main():
     items = cargar()
-    js = ("// Generado por scripts/catalogo.py desde datos/productos.json. No editar a mano.\n"
+    js = ("// Generado por scripts/catalogo.py desde datos/productos/. No editar a mano.\n"
           "window.CATALOGO=" + json.dumps({"cat": CAT, "items": items}, ensure_ascii=False, separators=(",", ":")) + ";\n")
     with open(os.path.join(ROOT, "assets", "productos.js"), "w", encoding="utf-8") as f:
         f.write(js)

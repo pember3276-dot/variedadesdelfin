@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Cafetera Sokany 6 tazas",
+  "foto": "/img/cafetera.webp",
+  "precio": 120000,
+  "precio_antes": 150000,
+  "categoria": "home",
+  "descripcion": "750 ml, 650 W, jarra de vidrio, programable y temperatura constante.",
+  "caracteristicas": [
+    "Capacidad de 750 ml, 6 tazas",
+    "Potencia de 650 W",
+    "Jarra de vidrio",
+    "Función de programación",
+    "Temperatura constante",
+    "Fácil de usar"
+  ],
+  "id": "113",
+  "creado": "2026-11-01T12:09",
+  "nombre_en": "Sokany 6-cup coffee maker",
+  "descripcion_en": "750 ml, 650 W, glass carafe, programmable, keeps coffee warm.",
+  "caracteristicas_en": [
+    "750 ml capacity, 6 cups",
+    "650 W",
+    "Glass carafe",
+    "Programmable",
+    "Keeps a constant temperature",
+    "Easy to use"
+  ]
+}

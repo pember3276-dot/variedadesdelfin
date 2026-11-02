@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Pulidora inalámbrica Thwjiang",
+  "foto": "/img/pulidora.webp",
+  "precio": 117400,
+  "precio_antes": 146700,
+  "categoria": "tools",
+  "descripcion": "Batería extraíble, discos de corte de 3\", cargador y maletín. Para metal, madera y más.",
+  "caracteristicas": [
+    "Inalámbrica, con batería extraíble",
+    "Discos de corte de 3 pulgadas incluidos",
+    "Cargador incluido",
+    "Maletín de transporte",
+    "Mango ergonómico y protector de disco",
+    "Para metal, madera y otros materiales"
+  ],
+  "id": "112",
+  "creado": "2026-11-01T12:10",
+  "nombre_en": "Thwjiang cordless angle grinder",
+  "descripcion_en": "Removable battery, 3\" cutting discs, charger and case. For metal, wood and more.",
+  "caracteristicas_en": [
+    "Cordless, removable battery",
+    "3-inch cutting discs included",
+    "Charger included",
+    "Carry case",
+    "Ergonomic handle and disc guard",
+    "For metal, wood and other materials"
+  ]
+}

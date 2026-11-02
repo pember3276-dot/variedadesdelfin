@@ -1,0 +1,32 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Moto eléctrica infantil 36V 800W",
+  "foto": "/img/moto.webp",
+  "precio": 1733400,
+  "precio_antes": 2166700,
+  "categoria": "toys",
+  "descripcion": "Hasta 20 km/h con selector de velocidad, batería 12Ah (unos 15 km por carga), frenos de disco y amortiguación. Soporta 80 kg. 4 colores.",
+  "caracteristicas": [
+    "Motor de 36 V y 800 W",
+    "Velocidad máxima de 20 km/h, con selector de 3 velocidades para principiantes",
+    "Batería de 36 V 12 Ah, hasta 15 km por carga",
+    "Carga completa en unas 4,5 horas",
+    "Soporta hasta 80 kg",
+    "Rines 2.5-10, frenos de disco mecánicos y amortiguación",
+    "Disponible en 4 colores"
+  ],
+  "id": "101",
+  "creado": "2026-11-01T12:06",
+  "nombre_en": "Kids' electric motorbike 36V 800W",
+  "descripcion_en": "Up to 20 km/h with speed selector, 12Ah battery (about 15 km per charge), disc brakes and suspension. Holds 80 kg. 4 colours.",
+  "caracteristicas_en": [
+    "36 V, 800 W motor",
+    "Top speed 20 km/h, 3-speed selector for beginners",
+    "36 V 12 Ah battery, up to 15 km per charge",
+    "Full charge in about 4.5 hours",
+    "Holds up to 80 kg",
+    "2.5-10 rims, mechanical disc brakes and suspension",
+    "Available in 4 colours"
+  ]
+}
