@@ -33,29 +33,32 @@ content:
       - name: precio
         label: Tu precio de venta (pesos)
         type: number
-        min: 0
+        options:
+          min: 0
         description: Lo que paga el cliente. Escríbelo sin puntos, por ejemplo 45000.
       - name: precio_antes
         label: Precio antes (opcional, sale tachado)
         type: number
-        min: 0
+        options:
+          min: 0
         description: Si lo llenas con un valor mayor, el producto sale como Oferta flash con el descuento.
       - name: categoria
         label: Categoría
         type: select
         default: misc
-        values:
-          - { name: gifts, label: Regalos y detalles }
-          - { name: stationery, label: Papelería }
-          - { name: sweets, label: Dulcería }
-          - { name: plush, label: Peluches }
-          - { name: season, label: Temporada }
-          - { name: toys, label: Juguetes }
-          - { name: tech, label: Tecnología }
-          - { name: home, label: Hogar y cocina }
-          - { name: tools, label: Herramientas }
-          - { name: care, label: Cuidado personal }
-          - { name: misc, label: Variedades }
+        options:
+          values:
+            - { name: gifts, label: Regalos y detalles }
+            - { name: stationery, label: Papelería }
+            - { name: sweets, label: Dulcería }
+            - { name: plush, label: Peluches }
+            - { name: season, label: Temporada }
+            - { name: toys, label: Juguetes }
+            - { name: tech, label: Tecnología }
+            - { name: home, label: Hogar y cocina }
+            - { name: tools, label: Herramientas }
+            - { name: care, label: Cuidado personal }
+            - { name: misc, label: Variedades }
       - name: descripcion
         label: Descripción corta
         type: text
