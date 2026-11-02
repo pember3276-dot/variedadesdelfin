@@ -543,6 +543,7 @@
     "foto": "/img/subidas/prueba-panel.jpg",
     "precio": null,
     "categoria": "home",
-    "pedir_sugerencia": true
+    "pedir_sugerencia": true,
+    "id": "1000"
   }
 ]
