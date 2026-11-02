@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Kit de herramientas multifuncional",
-  "foto": "/img/kit.webp",
   "precio": 160000,
   "precio_antes": 200000,
   "categoria": "tools",
@@ -26,5 +25,8 @@
     "Tape measure, saw and voltage tester",
     "Screws and wall plugs",
     "Sturdy, organised case"
+  ],
+  "fotos": [
+    "/img/kit.webp"
   ]
 }

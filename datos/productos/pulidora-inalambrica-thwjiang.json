@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Pulidora inalámbrica Thwjiang",
-  "foto": "/img/pulidora.webp",
   "precio": 117400,
   "precio_antes": 146700,
   "categoria": "tools",
@@ -26,5 +25,8 @@
     "Carry case",
     "Ergonomic handle and disc guard",
     "For metal, wood and other materials"
+  ],
+  "fotos": [
+    "/img/pulidora.webp"
   ]
 }

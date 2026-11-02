@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "mini altavoz",
-  "foto": "/img/subidas/mini altavoz-1.jpg",
   "precio": null,
   "precio_antes": null,
   "categoria": "misc",
@@ -12,5 +11,8 @@
   "creado": "2026-11-02T16:00",
   "nombre_en": "",
   "descripcion_en": "",
-  "caracteristicas_en": []
+  "caracteristicas_en": [],
+  "fotos": [
+    "/img/subidas/mini altavoz-1.jpg"
+  ]
 }

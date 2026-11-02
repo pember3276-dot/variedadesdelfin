@@ -3,7 +3,7 @@
 media:
   input: img/subidas
   output: /img/subidas
-  extensions: [jpg, jpeg, png, webp]
+  extensions: [jpg, jpeg, png, webp, mp4, mov, webm, m4v, 3gp]
 
 content:
   - name: productos
@@ -25,9 +25,12 @@ content:
         label: Nombre
         type: string
         required: true
-      - name: foto
-        label: Foto
+      - name: fotos
+        label: Fotos (la primera sale en la tienda; hasta 8)
         type: image
+        options:
+          multiple:
+            max: 8
       - name: precio
         label: Precio (pesos, sin puntos)
         type: number
@@ -62,6 +65,13 @@ content:
         label: Destacado (sale de primero)
         type: boolean
         default: false
+      - name: videos
+        label: Videos (opcional, hasta 2; se recortan a 30 segundos)
+        type: file
+        options:
+          extensions: [mp4, mov, webm, m4v, 3gp]
+          multiple:
+            max: 2
       - name: precio_antes
         label: Precio antes (opcional, sale tachado como oferta)
         type: number

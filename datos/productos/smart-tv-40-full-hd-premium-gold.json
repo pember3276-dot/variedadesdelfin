@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Smart TV 40\" Full HD Premium Gold",
-  "foto": "/img/tv.webp",
   "precio": 1066800,
   "precio_antes": 1333400,
   "categoria": "tech",
@@ -26,5 +25,8 @@
     "Hi-Fi sound",
     "Two universal remotes",
     "2026 model"
+  ],
+  "fotos": [
+    "/img/tv.webp"
   ]
 }

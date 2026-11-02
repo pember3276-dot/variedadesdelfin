@@ -2,7 +2,6 @@
   "publicado": true,
   "destacado": false,
   "nombre": "Smart TV 32\" HD Premium Gold",
-  "foto": "/img/tv.webp",
   "precio": 666800,
   "precio_antes": 833400,
   "categoria": "tech",
@@ -26,5 +25,8 @@
     "Hi-Fi sound",
     "Two universal remotes",
     "2026 model"
+  ],
+  "fotos": [
+    "/img/tv.webp"
   ]
 }
