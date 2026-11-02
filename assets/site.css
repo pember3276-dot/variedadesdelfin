@@ -164,3 +164,5 @@ footer.foot .linkbtn{background:none;border:0;padding:0;color:var(--ink);text-de
 @media (max-width:860px){.shop{grid-template-columns:1fr}aside.cart{position:static}}
 @media (max-width:420px){.grid{grid-template-columns:1fr 1fr;gap:10px}.info{padding:10px}.price{font-size:17px}.add{padding:6px 9px;font-size:13px}.brand img{height:46px}.cartbtn{padding:8px 12px}.tools{gap:8px}.waf span{display:none}.waf{padding:14px}}
 @media (max-width:380px){.brand img{height:40px}.lang a,.lang span{padding:5px 8px}.cartbtn{padding:7px 10px;font-size:15px;gap:6px}header.top .wrap{gap:8px}}
+.boldbox{margin:10px 0;display:grid;gap:8px;justify-items:center}
+.pago .pagoacc{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}

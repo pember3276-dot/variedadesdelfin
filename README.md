@@ -5,6 +5,7 @@ Catálogo con pedido por WhatsApp, español (/) e inglés (/en/), páginas legal
 banner de cookies con Google Consent Mode v2 y PWA instalable.
 
 - Productos: `assets/tienda.js` (precio de venta; los costos NO van aquí).
+- Pagos PSE/tarjeta con Bold: `bold/` (Worker que firma el cobro; ver `bold/README.md`) y página de regreso `/pago/`.
 - Estilos: `assets/site.css`. Cookies, WhatsApp y PWA: `assets/app.js`, `sw.js`.
 
 ## Identidad "Celeste y cercana"
