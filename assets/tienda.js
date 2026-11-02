@@ -19,7 +19,6 @@ const DCTO_FLASH = 0;
 // {id:114,c:"home",p:26800}
 // {id:115,c:"home",p:13400}
 // {id:101,c:"toys",p:1733400}
-// {id:102,c:"toys",p:120000}
 // {id:103,c:"care",p:37400}
 // {id:104,c:"toys",p:30000}
 // PRECIOS:fin
