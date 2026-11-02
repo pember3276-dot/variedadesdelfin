@@ -69,7 +69,7 @@ PRODUCTS.forEach(p => { p.flash = true; if (DCTO_FLASH) { p.antes = p.p; p.p = M
 const S = {
   es:{all:"Todo",flash:"Ofertas flash",add:"Agregar",inCart:n=>`En pedido (${n})`,addMore:n=>`En pedido (${n}) · agregar otro`,addLong:"Agregar al pedido",detail:"Ver detalle",see:"Ver detalle de",
       tag:`Flash −${Math.round(DCTO_FLASH*100)}%`,catFlash:"Oferta flash · ",confirm:"Confirmamos disponibilidad y colores por WhatsApp.",each:"c/u",less:"Quitar uno",more:"Agregar uno",
-      hello:"Hola Variedades Delfín, quiero hacer este pedido:",tot:"Total productos",name:"Nombre",noname:"(sin nombre)",del:"Entrega",pay:"Pago",note:"Nota",
+      hello:"Hola Variedades Delfín, quiero hacer este pedido:",proof:"📎 Enviaré el comprobante de pago por este chat para validarlo.",proofHint:"Después de pagar, envía el pantallazo o comprobante en el mismo chat de WhatsApp. Validamos el pago y te confirmamos el despacho.",tot:"Total productos",name:"Nombre",noname:"(sin nombre)",del:"Entrega",pay:"Pago",note:"Nota",
       errName:"Escribe tu nombre para enviar el pedido.",errDir:"Escribe la dirección para el domicilio.",
       ship:{pickup:"Recoges en Calle 63 #61-23, BellaVista, Bello, todos los días de 9 a.m. a 8 p.m. Te avisamos por WhatsApp cuando esté listo.",
             home:"El valor del domicilio depende de la zona y la hora y se suma al total. Te lo confirmamos por WhatsApp antes de enviar.",
@@ -77,7 +77,7 @@ const S = {
       locale:"es-CO"},
   en:{all:"All",flash:"Flash deals",add:"Add",inCart:n=>`In order (${n})`,addMore:n=>`In order (${n}) · add another`,addLong:"Add to order",detail:"See details",see:"See details of",
       tag:`Flash −${Math.round(DCTO_FLASH*100)}%`,catFlash:"Flash deal · ",confirm:"We confirm stock and colours on WhatsApp.",each:"each",less:"Remove one",more:"Add one",
-      hello:"Hi Variedades Delfín, I'd like to place this order:",tot:"Products total",name:"Name",noname:"(no name)",del:"Delivery",pay:"Payment",note:"Note",
+      hello:"Hi Variedades Delfín, I'd like to place this order:",proof:"📎 I'll send the payment receipt in this chat for validation.",proofHint:"After paying, send the screenshot or receipt in the same WhatsApp chat. We validate the payment and confirm dispatch.",tot:"Products total",name:"Name",noname:"(no name)",del:"Delivery",pay:"Payment",note:"Note",
       errName:"Please enter your name to send the order.",errDir:"Please enter the delivery address.",
       ship:{pickup:"Pick up at Calle 63 #61-23, BellaVista, Bello, every day 9 a.m.–8 p.m. We'll message you on WhatsApp when it's ready.",
             home:"Delivery cost depends on the area and time and is added to the total. We confirm it on WhatsApp before sending.",
@@ -130,12 +130,14 @@ function renderCart(){
   const sel=$("entrega"), delivery=sel.value, label=sel.options[sel.selectedIndex].dataset.msg||delivery;
   $("dirwrap").hidden = delivery!=="home";
   $("linkhint").hidden = $("pago").value!=="link";
+  const needsProof = ["nequi","davi","bank"].includes($("pago").value);
+  $("proofhint").hidden = !needsProof; $("proofhint").textContent = S.proofHint;
   $("shiphint").textContent = S.ship[delivery];
   const send=$("send"); send.setAttribute("aria-disabled", items.length?"false":"true");
   const payLabel = $("pago").options[$("pago").selectedIndex].text;
   const msg = [S.hello,"",...items.map(it=>`• ${it.q} x ${N(it)} — ${fmt(it.p*it.q)}`),"",`${S.tot}: ${fmt(total)}`,
     `${S.name}: ${$("nombre").value||S.noname}`,`${S.del}: ${label}${delivery==="home"&&$("dir").value?" — "+$("dir").value:""}`,
-    `${S.pay}: ${payLabel}`, $("nota").value?`${S.note}: ${$("nota").value}`:""].filter((l,i,a)=>l!==""||a[i-1]!=="").join("\n");
+    `${S.pay}: ${payLabel}`, $("nota").value?`${S.note}: ${$("nota").value}`:"", needsProof?"":null, needsProof?S.proof:null].filter(l=>l!==null).filter((l,i,a)=>l!==""||a[i-1]!=="").join("\n");
   send.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 }
 function bump(id){ cart[id]=(cart[id]||0)+1; save(); renderGrid(); renderCart(); window.dataLayer&&dataLayer.push({event:"add_to_cart",item_id:String(id)}); }
