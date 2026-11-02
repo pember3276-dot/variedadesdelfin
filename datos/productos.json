@@ -454,5 +454,12 @@
       "Payment test product",
       "No item is shipped"
     ]
+  },
+  {
+    "publicado": false,
+    "nombre": "mini altavoz",
+    "foto": "/img/subidas/mini altavoz-1.jpg",
+    "categoria": "misc",
+    "pedir_sugerencia": true
   }
 ]
