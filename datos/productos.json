@@ -536,5 +536,13 @@
       "fuentes": [],
       "nota": ""
     }
+  },
+  {
+    "publicado": false,
+    "nombre": "PRUEBA panel (no publicar)",
+    "foto": "/img/subidas/prueba-panel.jpg",
+    "precio": null,
+    "categoria": "home",
+    "pedir_sugerencia": true
   }
 ]
