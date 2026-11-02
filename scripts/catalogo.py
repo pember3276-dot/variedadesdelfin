@@ -219,6 +219,13 @@ def cargar():
             d["fotos"] = [d["fotos"]] if d["fotos"] else []; cambio = True
         if isinstance(d.get("videos"), str):
             d["videos"] = [d["videos"]] if d["videos"] else []; cambio = True
+        # Un video subido en "Fotos" se pasa solo a "videos".
+        fotos = d.get("fotos") or []
+        en_fotos = [f for f in fotos if isinstance(f, str) and f.lower().endswith(EXT_VIDEO)]
+        if en_fotos:
+            d["fotos"] = [f for f in fotos if f not in en_fotos]
+            d["videos"] = (d.get("videos") or []) + en_fotos
+            cambio = True
         # Videos nuevos: se optimizan y el archivo del panel pasa a la versión liviana.
         vids, nuevas = [], []
         for v in d.get("videos") or []:

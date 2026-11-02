@@ -26,11 +26,18 @@ content:
         type: string
         required: true
       - name: fotos
-        label: Fotos (la primera sale en la tienda; hasta 8)
+        label: Fotos y videos (la primera foto sale en la tienda)
         type: image
         options:
+          extensions: [jpg, jpeg, png, webp, mp4, mov, webm, m4v, 3gp]
           multiple:
-            max: 8
+            max: 10
+      - name: videos
+        label: Más videos (opcional; también puedes subirlos arriba)
+        type: file
+        options:
+          extensions: [mp4, mov, webm, m4v, 3gp]
+          multiple: true
       - name: precio
         label: Precio (pesos, sin puntos)
         type: number
@@ -65,13 +72,6 @@ content:
         label: Destacado (sale de primero)
         type: boolean
         default: false
-      - name: videos
-        label: Videos (opcional, hasta 2; se recortan a 30 segundos)
-        type: file
-        options:
-          extensions: [mp4, mov, webm, m4v, 3gp]
-          multiple:
-            max: 2
       - name: precio_antes
         label: Precio antes (opcional, sale tachado como oferta)
         type: number
