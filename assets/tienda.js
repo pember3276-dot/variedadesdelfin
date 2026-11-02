@@ -34,7 +34,7 @@ const S = {
   es:{all:"Todo",flash:"Ofertas flash",add:"Agregar",inCart:n=>`En pedido (${n})`,addMore:n=>`En pedido (${n}) · agregar otro`,addLong:"Agregar al pedido",detail:"Ver detalle",see:"Ver detalle de",
       catFlash:"Oferta flash · ",confirm:"Confirmamos disponibilidad y colores por WhatsApp.",each:"c/u",less:"Quitar uno",more:"Agregar uno",
       hello:"Hola Variedades Delfín, quiero hacer este pedido:",proof:"📎 Adjunto el comprobante de pago para validarlo con el banco.",proofHint:"Paga primero y adjunta aquí el pantallazo o comprobante. Es obligatorio para enviar el pedido: lo verificamos con el banco y te confirmamos el despacho.",errProof:"Adjunta el comprobante de pago (foto o PDF) para enviar el pedido.",errBig:"El archivo pesa más de 10 MB. Envía un pantallazo más liviano.",shareTip:"Elige WhatsApp y el chat de Variedades Delfín (310 379 0554). El comprobante va junto al pedido.",manual:"Tu dispositivo no permite adjuntar desde la web: se abrirá el chat con el pedido; adjunta ahí el comprobante con el clip 📎 antes de enviar.",tot:"Total productos",
-      boldPay:"Continuar al pago con PSE o tarjeta",boldWait:"Preparando el pago seguro…",boldReady:"Pulsa el botón de Bold para pagar con PSE o tarjeta. Al terminar vuelves aquí para enviar el pedido por WhatsApp.",
+      boldPay:"Continuar al pago con PSE o tarjeta",boldWait:"Abriendo la pasarela segura de Bold…",boldReady:"Te llevamos a Bold para pagar con PSE o tarjeta. Si no se abre, pulsa el botón de Bold. Al terminar vuelves aquí para enviar el pedido por WhatsApp.",
       boldHome:"Con Bold pagas ahora los productos. El domicilio se paga aparte al recibir (te confirmamos el valor por WhatsApp).",boldHint:"Pagas en la pasarela segura de Bold por el valor exacto del pedido. La tienda no ve los datos de tu tarjeta.",
       boldErr:"No pudimos preparar el pago. Intenta de nuevo o elige otra forma de pago.",boldPrice:"Los precios cambiaron. Recarga la página e inténtalo de nuevo.",boldDesc:"Pedido Variedades Delfín",boldBack:"/pago/",name:"Nombre",noname:"(sin nombre)",del:"Entrega",pay:"Pago",note:"Nota",
       errName:"Escribe tu nombre para enviar el pedido.",errDir:"Escribe la dirección para el domicilio.",
@@ -45,7 +45,7 @@ const S = {
   en:{all:"All",flash:"Flash deals",add:"Add",inCart:n=>`In order (${n})`,addMore:n=>`In order (${n}) · add another`,addLong:"Add to order",detail:"See details",see:"See details of",
       catFlash:"Flash deal · ",confirm:"We confirm stock and colours on WhatsApp.",each:"each",less:"Remove one",more:"Add one",
       hello:"Hi Variedades Delfín, I'd like to place this order:",proof:"📎 Payment receipt attached for bank verification.",proofHint:"Pay first and attach the screenshot or receipt here. It is required to send the order: we verify it with the bank and confirm dispatch.",errProof:"Attach the payment receipt (photo or PDF) to send the order.",errBig:"The file is larger than 10 MB. Please send a lighter screenshot.",shareTip:"Choose WhatsApp and the Variedades Delfín chat (+57 310 379 0554). The receipt goes with the order.",manual:"Your device can't attach from the web: the chat will open with your order; attach the receipt there with the 📎 clip before sending.",tot:"Products total",
-      boldPay:"Continue to PSE or card payment",boldWait:"Preparing secure payment…",boldReady:"Tap the Bold button to pay with PSE or card. You'll come back here to send your order on WhatsApp.",
+      boldPay:"Continue to PSE or card payment",boldWait:"Opening the secure Bold checkout…",boldReady:"Taking you to Bold to pay with PSE or card. If it doesn't open, tap the Bold button. You'll come back here to send your order on WhatsApp.",
       boldHome:"With Bold you pay for the products now. Delivery is paid separately on arrival (we confirm the cost on WhatsApp).",boldHint:"You pay on Bold's secure checkout for the exact order amount. The store never sees your card details.",
       boldErr:"We couldn't prepare the payment. Try again or choose another payment method.",boldPrice:"Prices have changed. Reload the page and try again.",boldDesc:"Variedades Delfin order",boldBack:"/en/payment/",name:"Name",noname:"(no name)",del:"Delivery",pay:"Payment",note:"Note",
       errName:"Please enter your name to send the order.",errDir:"Please enter the delivery address.",
@@ -151,6 +151,14 @@ async function startBold(){
   lib.src = "https://checkout.bold.co/library/boldPaymentButton.js" + (run>1 ? "?r="+run : ""); lib.dataset.boldLib = "";
   lib.onerror = () => { if(run===boldRun) box.innerHTML=`<p class="err" role="alert">${S.boldErr}</p>`; };
   document.head.appendChild(lib);
+  // Abre la pasarela sin un segundo clic: cuando Bold pinta su botón, lo pulsamos. Si no se puede, queda visible para pulsarlo.
+  const t0 = Date.now();
+  (function abrir(){
+    if (run!==boldRun) return;
+    const el = box.querySelector("bold-payment-button"), bt = el && el.shadowRoot && el.shadowRoot.querySelector("button");
+    if (bt) { box.scrollIntoView({block:"center",behavior:"smooth"}); bt.click(); return; }
+    if (Date.now()-t0 < 8000) setTimeout(abrir, 150); else box.scrollIntoView({block:"center"});
+  })();
   window.dataLayer&&dataLayer.push({event:"begin_checkout",payment_type:"bold",value:r.amount,currency:"COP"});
 }
 if (BOLD_FIRMA) {
