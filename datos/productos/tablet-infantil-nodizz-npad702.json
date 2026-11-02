@@ -1,0 +1,34 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Tablet infantil Nodizz NPAD702",
+  "foto": "/img/tablet.webp",
+  "precio": 293400,
+  "precio_antes": 366700,
+  "categoria": "tech",
+  "descripcion": "Pantalla de 7\", 2 GB RAM, 32 GB, Android 13, Wi-Fi, control parental y forro protector. Incluye accesorios.",
+  "caracteristicas": [
+    "Pantalla de 7 pulgadas",
+    "2 GB de RAM y 32 GB de almacenamiento",
+    "Android 13 y Wi-Fi",
+    "Cámara frontal y trasera",
+    "Apps y juegos infantiles",
+    "Control parental",
+    "Forro protector con soporte",
+    "Incluye pistola de juguete, lápiz táctil, stickers, regla y correa"
+  ],
+  "id": "108",
+  "creado": "2026-11-01T12:14",
+  "nombre_en": "Nodizz NPAD702 kids tablet",
+  "descripcion_en": "7\" screen, 2 GB RAM, 32 GB, Android 13, Wi-Fi, parental controls and protective case. Accessories included.",
+  "caracteristicas_en": [
+    "7-inch screen",
+    "2 GB RAM and 32 GB storage",
+    "Android 13 and Wi-Fi",
+    "Front and rear camera",
+    "Kids' apps and games",
+    "Parental controls",
+    "Protective case with stand",
+    "Includes toy gun, stylus, stickers, ruler and strap"
+  ]
+}

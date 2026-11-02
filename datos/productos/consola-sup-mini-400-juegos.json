@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Consola SUP Mini 400 juegos",
+  "foto": "/img/sup.webp",
+  "precio": 30000,
+  "precio_antes": 37500,
+  "categoria": "toys",
+  "descripcion": "Pantalla de 3\", modo 2 jugadores con control incluido, batería recargable y cable para TV.",
+  "caracteristicas": [
+    "Pantalla LED de 3 pulgadas",
+    "400 juegos clásicos",
+    "Modo para 2 jugadores, incluye control",
+    "Batería recargable",
+    "Se conecta al TV, incluye cable AV y cable de carga",
+    "Compacta y fácil de llevar"
+  ],
+  "id": "104",
+  "creado": "2026-11-01T12:03",
+  "nombre_en": "SUP Mini console, 400 games",
+  "descripcion_en": "3\" screen, 2-player mode with extra controller, rechargeable battery and TV cable.",
+  "caracteristicas_en": [
+    "3-inch LED screen",
+    "400 classic games",
+    "2-player mode, controller included",
+    "Rechargeable battery",
+    "Connects to the TV, AV and charging cables included",
+    "Compact and portable"
+  ]
+}

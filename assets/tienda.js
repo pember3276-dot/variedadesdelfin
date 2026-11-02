@@ -1,7 +1,7 @@
-// Catálogo y pedido por WhatsApp. Los productos vienen de assets/productos.js (generado desde datos/productos.json).
+// Catálogo y pedido por WhatsApp. Los productos vienen de assets/productos.js (generado desde datos/productos/).
 const WHATSAPP = "573103790554";
 // Pago con Bold (PSE y tarjeta). URL del Worker que firma el cobro (bold/worker.js). Vacía = opción oculta.
-// El Worker lee los precios del bloque PRECIOS de abajo (lo genera scripts/catalogo.py desde datos/productos.json).
+// El Worker lee los precios del bloque PRECIOS de abajo (lo genera scripts/catalogo.py desde datos/productos/).
 const BOLD_FIRMA = "https://bold-firma.arelly3276.workers.dev/";
 const L = document.documentElement.lang === "en" ? "en" : "es";
 

@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Balanza digital de cocina Hoklee",
+  "foto": "/img/balanza.webp",
+  "precio": 26800,
+  "precio_antes": 33400,
+  "categoria": "home",
+  "descripcion": "Hasta 10 kg con precisión de 1 g, pantalla LCD y función tara. Funciona con 2 pilas AAA.",
+  "caracteristicas": [
+    "Capacidad máxima de 10 kg",
+    "Precisión de 1 g",
+    "Pantalla LCD de fácil lectura",
+    "Función tara para descontar el recipiente",
+    "Funciona con 2 pilas AAA",
+    "Diseño delgado y fácil de limpiar"
+  ],
+  "id": "114",
+  "creado": "2026-11-01T12:08",
+  "nombre_en": "Hoklee digital kitchen scale",
+  "descripcion_en": "Up to 10 kg with 1 g precision, LCD display and tare function. Runs on 2 AAA batteries.",
+  "caracteristicas_en": [
+    "10 kg maximum capacity",
+    "1 g precision",
+    "Easy-to-read LCD display",
+    "Tare function",
+    "Runs on 2 AAA batteries",
+    "Slim, easy-to-clean design"
+  ]
+}
