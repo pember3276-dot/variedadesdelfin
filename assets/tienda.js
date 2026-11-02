@@ -69,7 +69,7 @@ PRODUCTS.forEach(p => { p.flash = true; if (DCTO_FLASH) { p.antes = p.p; p.p = M
 const S = {
   es:{all:"Todo",flash:"Ofertas flash",add:"Agregar",inCart:n=>`En pedido (${n})`,addMore:n=>`En pedido (${n}) · agregar otro`,addLong:"Agregar al pedido",detail:"Ver detalle",see:"Ver detalle de",
       tag:`Flash −${Math.round(DCTO_FLASH*100)}%`,catFlash:"Oferta flash · ",confirm:"Confirmamos disponibilidad y colores por WhatsApp.",each:"c/u",less:"Quitar uno",more:"Agregar uno",
-      hello:"Hola Variedades Delfín, quiero hacer este pedido:",proof:"📎 Enviaré el comprobante de pago por este chat para validarlo.",proofHint:"Después de pagar, envía el pantallazo o comprobante en el mismo chat de WhatsApp. Validamos el pago y te confirmamos el despacho.",tot:"Total productos",name:"Nombre",noname:"(sin nombre)",del:"Entrega",pay:"Pago",note:"Nota",
+      hello:"Hola Variedades Delfín, quiero hacer este pedido:",proof:"📎 Adjunto el comprobante de pago para validarlo con el banco.",proofHint:"Paga primero y adjunta aquí el pantallazo o comprobante. Es obligatorio para enviar el pedido: lo verificamos con el banco y te confirmamos el despacho.",errProof:"Adjunta el comprobante de pago (foto o PDF) para enviar el pedido.",errBig:"El archivo pesa más de 10 MB. Envía un pantallazo más liviano.",shareTip:"Elige WhatsApp y el chat de Variedades Delfín (310 379 0554). El comprobante va junto al pedido.",manual:"Tu dispositivo no permite adjuntar desde la web: se abrirá el chat con el pedido; adjunta ahí el comprobante con el clip 📎 antes de enviar.",tot:"Total productos",name:"Nombre",noname:"(sin nombre)",del:"Entrega",pay:"Pago",note:"Nota",
       errName:"Escribe tu nombre para enviar el pedido.",errDir:"Escribe la dirección para el domicilio.",
       ship:{pickup:"Recoges en Calle 63 #61-23, BellaVista, Bello, todos los días de 9 a.m. a 8 p.m. Te avisamos por WhatsApp cuando esté listo.",
             home:"El valor del domicilio depende de la zona y la hora y se suma al total. Te lo confirmamos por WhatsApp antes de enviar.",
@@ -77,7 +77,7 @@ const S = {
       locale:"es-CO"},
   en:{all:"All",flash:"Flash deals",add:"Add",inCart:n=>`In order (${n})`,addMore:n=>`In order (${n}) · add another`,addLong:"Add to order",detail:"See details",see:"See details of",
       tag:`Flash −${Math.round(DCTO_FLASH*100)}%`,catFlash:"Flash deal · ",confirm:"We confirm stock and colours on WhatsApp.",each:"each",less:"Remove one",more:"Add one",
-      hello:"Hi Variedades Delfín, I'd like to place this order:",proof:"📎 I'll send the payment receipt in this chat for validation.",proofHint:"After paying, send the screenshot or receipt in the same WhatsApp chat. We validate the payment and confirm dispatch.",tot:"Products total",name:"Name",noname:"(no name)",del:"Delivery",pay:"Payment",note:"Note",
+      hello:"Hi Variedades Delfín, I'd like to place this order:",proof:"📎 Payment receipt attached for bank verification.",proofHint:"Pay first and attach the screenshot or receipt here. It is required to send the order: we verify it with the bank and confirm dispatch.",errProof:"Attach the payment receipt (photo or PDF) to send the order.",errBig:"The file is larger than 10 MB. Please send a lighter screenshot.",shareTip:"Choose WhatsApp and the Variedades Delfín chat (+57 310 379 0554). The receipt goes with the order.",manual:"Your device can't attach from the web: the chat will open with your order; attach the receipt there with the 📎 clip before sending.",tot:"Products total",name:"Name",noname:"(no name)",del:"Delivery",pay:"Payment",note:"Note",
       errName:"Please enter your name to send the order.",errDir:"Please enter the delivery address.",
       ship:{pickup:"Pick up at Calle 63 #61-23, BellaVista, Bello, every day 9 a.m.–8 p.m. We'll message you on WhatsApp when it's ready.",
             home:"Delivery cost depends on the area and time and is added to the total. We confirm it on WhatsApp before sending.",
@@ -131,26 +131,39 @@ function renderCart(){
   $("dirwrap").hidden = delivery!=="home";
   $("linkhint").hidden = $("pago").value!=="link";
   const needsProof = ["nequi","davi","bank"].includes($("pago").value);
-  $("proofhint").hidden = !needsProof; $("proofhint").textContent = S.proofHint;
+  $("proofhint").hidden = !needsProof; $("proofhint").textContent = S.proofHint; $("compwrap").hidden = !needsProof;
   $("shiphint").textContent = S.ship[delivery];
   const send=$("send"); send.setAttribute("aria-disabled", items.length?"false":"true");
   const payLabel = $("pago").options[$("pago").selectedIndex].text;
   const msg = [S.hello,"",...items.map(it=>`• ${it.q} x ${N(it)} — ${fmt(it.p*it.q)}`),"",`${S.tot}: ${fmt(total)}`,
     `${S.name}: ${$("nombre").value||S.noname}`,`${S.del}: ${label}${delivery==="home"&&$("dir").value?" — "+$("dir").value:""}`,
     `${S.pay}: ${payLabel}`, $("nota").value?`${S.note}: ${$("nota").value}`:"", needsProof?"":null, needsProof?S.proof:null].filter(l=>l!==null).filter((l,i,a)=>l!==""||a[i-1]!=="").join("\n");
-  send.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  send.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`; lastMsg = msg;
 }
+let lastMsg = "";
 function bump(id){ cart[id]=(cart[id]||0)+1; save(); renderGrid(); renderCart(); window.dataLayer&&dataLayer.push({event:"add_to_cart",item_id:String(id)}); }
 
 $("filters").addEventListener("click",e=>{const b=e.target.closest("button"); if(!b) return; cat=b.dataset.c; renderFilters(); renderGrid();});
 $("grid").addEventListener("click",e=>{const t=e.target.closest("[data-detail]"); if(t){openDetail(t.dataset.detail);return;} const b=e.target.closest(".add"); if(b) bump(b.dataset.id);});
 $("lines").addEventListener("click",e=>{const b=e.target.closest("button[data-d]"); if(!b) return; const id=b.dataset.id; cart[id]=Math.max(0,(cart[id]||0)+Number(b.dataset.d)); if(!cart[id]) delete cart[id]; save(); renderGrid(); renderCart();});
 ["nombre","entrega","dir","pago","nota"].forEach(id=>$(id).addEventListener("input",renderCart));
+$("comp").addEventListener("change",()=>{$("err").hidden=true;});
 $("form").addEventListener("submit",e=>e.preventDefault());
 $("send").addEventListener("click",e=>{
   const noName=!$("nombre").value.trim(), needsDir=$("entrega").value==="home"&&!$("dir").value.trim();
   if(noName||needsDir){ e.preventDefault(); $("err").textContent=noName?S.errName:S.errDir; $("err").hidden=false; (noName?$("nombre"):$("dir")).focus(); return; }
-  $("err").hidden=true; window.dataLayer&&dataLayer.push({event:"order_whatsapp"});
+  const needsProof=["nequi","davi","bank"].includes($("pago").value), f=$("comp").files[0];
+  const fail=t=>{ e.preventDefault(); $("err").textContent=t; $("err").hidden=false; $("comp").focus(); };
+  if(needsProof && !f) return fail(S.errProof);
+  if(needsProof && f.size>10*1024*1024) return fail(S.errBig);
+  $("err").hidden=true; window.dataLayer&&dataLayer.push({event:"order_whatsapp",with_receipt:needsProof});
+  if(needsProof){
+    if(navigator.canShare && navigator.canShare({files:[f]})){
+      e.preventDefault();
+      $("proofhint").textContent=S.shareTip;
+      navigator.share({files:[f],text:lastMsg}).catch(()=>{});
+    } else { $("proofhint").textContent=S.manual; }
+  }
 });
 $("dclose").addEventListener("click",()=>$("detail").close());
 $("detail").addEventListener("click",e=>{ if(e.target.id==="detail"){ $("detail").close(); return; } const b=e.target.closest(".add"); if(b){ bump(b.dataset.id); openDetail(b.dataset.id); } });
