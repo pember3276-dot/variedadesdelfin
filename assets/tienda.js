@@ -22,7 +22,6 @@ const DCTO_FLASH = 0;
 // {id:102,c:"toys",p:120000}
 // {id:103,c:"care",p:37400}
 // {id:104,c:"toys",p:30000}
-// {id:999,c:"home",p:5000}
 // PRECIOS:fin
 const CATALOGO = window.CATALOGO || {cat:{},items:[]};
 const CAT = CATALOGO.cat;
