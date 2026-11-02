@@ -41,6 +41,13 @@ def slug(t):
     return re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:60] or "foto"
 
 
+# Derecho de retracto (términos y condiciones, punto 7): 5 días hábiles, el comprador paga el envío.
+DEVOLUCION = {"@type": "MerchantReturnPolicy", "applicableCountry": "CO",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 5, "returnMethod": ["https://schema.org/ReturnInStore", "https://schema.org/ReturnByMail"],
+              "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility",
+              "merchantReturnLink": SITE + "/terminos-y-condiciones/"}
+
 VERSION_FOTOS = "2"  # subirlo obliga a regenerar todas las fotos de img/p
 GRANDE = 1000  # px de las fotos de la galería
 ORIGINAL_MAX = 1600  # las fotos subidas más grandes se reducen en su sitio (repo liviano)
@@ -346,7 +353,8 @@ def itemlist(items, lang):
         url = SITE + ("/" if es else "/en/") + "#tienda"
         prod["offers"] = {"@type": "Offer", "priceCurrency": "COP", "price": p["p"],
                           "availability": "https://schema.org/InStock",
-                          "seller": {"@id": SITE + "/#tienda"}, "url": url}
+                          "seller": {"@id": SITE + "/#tienda"}, "url": url,
+                          "hasMerchantReturnPolicy": DEVOLUCION}
         els.append({"@type": "ListItem", "position": i, "item": prod})
     ld = {"@context": "https://schema.org", "@type": "ItemList",
           "name": "Productos" if es else "Products", "itemListElement": els}
