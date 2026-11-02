@@ -22,7 +22,7 @@ o se usa la opción "Link de pago por WhatsApp" con el valor total.
    - Settings → Variables and Secrets: `BOLD_API_KEY` (llave de identidad, texto) y `BOLD_SECRET_KEY` (llave secreta, tipo *Secret*).
    - Alternativa: guardar `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `BOLD_API_KEY` y `BOLD_SECRET_KEY` como secretos del repositorio
      y ejecutar la acción **Worker de pagos Bold**.
-3. Poner la URL del Worker (`https://bold-firma.<tu-subdominio>.workers.dev/`) en `BOLD_FIRMA` de `assets/tienda.js`.
+3. Poner la URL del Worker (hoy `https://bold-firma.arelly3276.workers.dev/`) en `BOLD_FIRMA` de `assets/tienda.js`.
    Mientras esté vacía, la opción de Bold no aparece en la tienda.
 4. Probar con las llaves de **pruebas** y luego cambiar las dos variables del Worker a las de **producción** (la página no cambia).
 

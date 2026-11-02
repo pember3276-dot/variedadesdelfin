@@ -3,7 +3,7 @@ const WHATSAPP = "573103790554";
 const DCTO_FLASH = 0.20;
 // Pago con Bold (PSE y tarjeta). URL del Worker que firma el cobro (bold/worker.js). Vacía = opción oculta.
 // OJO: el Worker lee los precios de este archivo con el patrón {id:N,c:"…",p:N y aplica DCTO_FLASH; conserva ese formato.
-const BOLD_FIRMA = "";
+const BOLD_FIRMA = "https://bold-firma.arelly3276.workers.dev/";
 const L = document.documentElement.lang === "en" ? "en" : "es";
 
 const CAT = {
