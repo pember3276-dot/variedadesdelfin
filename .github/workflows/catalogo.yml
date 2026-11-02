@@ -1,0 +1,44 @@
+# Actualiza la web cuando se guardan productos desde el panel (Pages CMS).
+name: Catálogo
+on:
+  push:
+    branches: [main]
+    paths:
+      - "datos/productos.json"
+      - "img/subidas/**"
+      - "scripts/**"
+      - ".github/workflows/catalogo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogo
+  cancel-in-progress: false
+
+jobs:
+  catalogo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow anthropic
+      - name: Sugerir descripción y precio de referencia
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/sugerir.py
+      - name: Armar catálogo
+        run: python3 scripts/catalogo.py
+      - name: Guardar cambios
+        run: |
+          git config user.name "catalogo-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A datos assets/productos.js index.html en/index.html img/p
+          if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
+          git commit -m "Actualizar catálogo desde el panel"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 5; done
+          exit 1
