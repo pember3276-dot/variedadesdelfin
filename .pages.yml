@@ -62,7 +62,7 @@ content:
       - name: descripcion
         label: Descripción corta
         type: text
-        description: Si la dejas vacía y hay foto, se escribe sola en 1 o 2 minutos. Puedes corregirla.
+        description: Una o dos frases sobre el producto (tamaño, material, para quién es).
       - name: caracteristicas
         label: Características
         type: string
@@ -70,12 +70,14 @@ content:
       - name: pedir_sugerencia
         label: Sugerir descripción y precio con IA
         type: boolean
-        default: true
+        default: false
+        hidden: true
         description: Al guardar, mira la foto, busca precios en tiendas de Colombia y llena la descripción y el precio de referencia. Se apaga sola cuando termina.
       - name: sugerencia
         label: Sugerencia de precio (solo referencia)
         type: object
         readonly: true
+        hidden: true
         fields:
           - name: precio_referencia
             label: Precio de referencia en la web (pesos)
