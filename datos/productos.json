@@ -460,6 +460,7 @@
     "nombre": "mini altavoz",
     "foto": "/img/subidas/mini altavoz-1.jpg",
     "categoria": "misc",
-    "pedir_sugerencia": true
+    "pedir_sugerencia": true,
+    "id": "1000"
   }
 ]
