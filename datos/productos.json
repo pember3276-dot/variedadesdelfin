@@ -3,10 +3,10 @@
     "id": "105",
     "publicado": true,
     "nombre": "Smart TV 32\" HD Premium Gold",
-    "categoria": "tech",
     "foto": "/img/tv.webp",
     "precio": 666800,
     "precio_antes": 833400,
+    "categoria": "tech",
     "descripcion": "Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.",
     "caracteristicas": [
       "Smart TV con Whale TV: Netflix, YouTube, Prime Video y más",
@@ -16,6 +16,7 @@
       "Doble control universal",
       "Modelo 2026"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "32\" HD Smart TV Premium Gold",
     "descripcion_en": "Whale TV with Netflix, YouTube and more. Bluetooth, USB, HDMI, Hi-Fi sound and two universal remotes.",
     "caracteristicas_en": [
@@ -25,22 +26,16 @@
       "Hi-Fi sound",
       "Two universal remotes",
       "2026 model"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "106",
     "publicado": true,
     "nombre": "Smart TV 40\" Full HD Premium Gold",
-    "categoria": "tech",
     "foto": "/img/tv.webp",
     "precio": 1066800,
     "precio_antes": 1333400,
+    "categoria": "tech",
     "descripcion": "Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.",
     "caracteristicas": [
       "Smart TV con Whale TV: Netflix, YouTube, Prime Video y más",
@@ -50,6 +45,7 @@
       "Doble control universal",
       "Modelo 2026"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "40\" Full HD Smart TV Premium Gold",
     "descripcion_en": "Whale TV with Netflix, YouTube and more. Bluetooth, USB, HDMI, Hi-Fi sound and two universal remotes.",
     "caracteristicas_en": [
@@ -59,22 +55,16 @@
       "Hi-Fi sound",
       "Two universal remotes",
       "2026 model"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "107",
     "publicado": true,
     "nombre": "Smart TV 43\" Full HD Premium Gold",
-    "categoria": "tech",
     "foto": "/img/tv.webp",
     "precio": 1180000,
     "precio_antes": 1475000,
+    "categoria": "tech",
     "descripcion": "Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.",
     "caracteristicas": [
       "Smart TV con Whale TV: Netflix, YouTube, Prime Video y más",
@@ -84,6 +74,7 @@
       "Doble control universal",
       "Modelo 2026"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "43\" Full HD Smart TV Premium Gold",
     "descripcion_en": "Whale TV with Netflix, YouTube and more. Bluetooth, USB, HDMI, Hi-Fi sound and two universal remotes.",
     "caracteristicas_en": [
@@ -93,22 +84,16 @@
       "Hi-Fi sound",
       "Two universal remotes",
       "2026 model"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "108",
     "publicado": true,
     "nombre": "Tablet infantil Nodizz NPAD702",
-    "categoria": "tech",
     "foto": "/img/tablet.webp",
     "precio": 293400,
     "precio_antes": 366700,
+    "categoria": "tech",
     "descripcion": "Pantalla de 7\", 2 GB RAM, 32 GB, Android 13, Wi-Fi, control parental y forro protector. Incluye accesorios.",
     "caracteristicas": [
       "Pantalla de 7 pulgadas",
@@ -120,6 +105,7 @@
       "Forro protector con soporte",
       "Incluye pistola de juguete, lápiz táctil, stickers, regla y correa"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Nodizz NPAD702 kids tablet",
     "descripcion_en": "7\" screen, 2 GB RAM, 32 GB, Android 13, Wi-Fi, parental controls and protective case. Accessories included.",
     "caracteristicas_en": [
@@ -131,22 +117,16 @@
       "Parental controls",
       "Protective case with stand",
       "Includes toy gun, stylus, stickers, ruler and strap"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "109",
     "publicado": true,
     "nombre": "Parlante Booms Box 3",
-    "categoria": "tech",
     "foto": "/img/parlante.webp",
     "precio": 160000,
     "precio_antes": 200000,
+    "categoria": "tech",
     "descripcion": "Bluetooth, USB y micro SD, doble bajo, resistente a salpicaduras, batería de larga duración.",
     "caracteristicas": [
       "Conexión Bluetooth",
@@ -156,6 +136,7 @@
       "Resistente a salpicaduras",
       "Batería recargable de larga duración"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Booms Box 3 speaker",
     "descripcion_en": "Bluetooth, USB and micro SD, dual bass, splash resistant, long-lasting battery.",
     "caracteristicas_en": [
@@ -165,22 +146,16 @@
       "Volume and music controls",
       "Splash resistant",
       "Long-lasting rechargeable battery"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "110",
     "publicado": true,
     "nombre": "Kit de herramientas multifuncional",
-    "categoria": "tools",
     "foto": "/img/kit.webp",
     "precio": 160000,
     "precio_antes": 200000,
+    "categoria": "tools",
     "descripcion": "Taladro inalámbrico con baterías, martillo, alicates, llave ajustable, destornilladores, brocas y más, en estuche.",
     "caracteristicas": [
       "Taladro inalámbrico con baterías",
@@ -190,6 +165,7 @@
       "Tornillos y tacos",
       "Estuche resistente y organizado"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Multi-purpose tool kit",
     "descripcion_en": "Cordless drill with batteries, hammer, pliers, adjustable wrench, screwdrivers, drill bits and more, in a case.",
     "caracteristicas_en": [
@@ -199,22 +175,16 @@
       "Tape measure, saw and voltage tester",
       "Screws and wall plugs",
       "Sturdy, organised case"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "111",
     "publicado": true,
     "nombre": "Hidrolavadora portátil doble batería 48V",
-    "categoria": "tools",
     "foto": "/img/hidrolavadora.webp",
     "precio": 64000,
     "precio_antes": 80000,
+    "categoria": "tools",
     "descripcion": "Dos baterías recargables, cargador, manguera de extensión, boquillas y maleta.",
     "caracteristicas": [
       "Dos baterías recargables de 48 V",
@@ -224,6 +194,7 @@
       "Uso portátil, sin conexión a la llave",
       "Maleta de guardado"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Portable 48V pressure washer, two batteries",
     "descripcion_en": "Two rechargeable batteries, charger, extension hose, nozzles and carry case.",
     "caracteristicas_en": [
@@ -233,22 +204,16 @@
       "Nozzles and accessories",
       "Portable, no tap connection needed",
       "Storage case"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "112",
     "publicado": true,
     "nombre": "Pulidora inalámbrica Thwjiang",
-    "categoria": "tools",
     "foto": "/img/pulidora.webp",
     "precio": 117400,
     "precio_antes": 146700,
+    "categoria": "tools",
     "descripcion": "Batería extraíble, discos de corte de 3\", cargador y maletín. Para metal, madera y más.",
     "caracteristicas": [
       "Inalámbrica, con batería extraíble",
@@ -258,6 +223,7 @@
       "Mango ergonómico y protector de disco",
       "Para metal, madera y otros materiales"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Thwjiang cordless angle grinder",
     "descripcion_en": "Removable battery, 3\" cutting discs, charger and case. For metal, wood and more.",
     "caracteristicas_en": [
@@ -267,22 +233,16 @@
       "Carry case",
       "Ergonomic handle and disc guard",
       "For metal, wood and other materials"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "113",
     "publicado": true,
     "nombre": "Cafetera Sokany 6 tazas",
-    "categoria": "home",
     "foto": "/img/cafetera.webp",
     "precio": 120000,
     "precio_antes": 150000,
+    "categoria": "home",
     "descripcion": "750 ml, 650 W, jarra de vidrio, programable y temperatura constante.",
     "caracteristicas": [
       "Capacidad de 750 ml, 6 tazas",
@@ -292,6 +252,7 @@
       "Temperatura constante",
       "Fácil de usar"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Sokany 6-cup coffee maker",
     "descripcion_en": "750 ml, 650 W, glass carafe, programmable, keeps coffee warm.",
     "caracteristicas_en": [
@@ -301,22 +262,16 @@
       "Programmable",
       "Keeps a constant temperature",
       "Easy to use"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "114",
     "publicado": true,
     "nombre": "Balanza digital de cocina Hoklee",
-    "categoria": "home",
     "foto": "/img/balanza.webp",
     "precio": 26800,
     "precio_antes": 33400,
+    "categoria": "home",
     "descripcion": "Hasta 10 kg con precisión de 1 g, pantalla LCD y función tara. Funciona con 2 pilas AAA.",
     "caracteristicas": [
       "Capacidad máxima de 10 kg",
@@ -326,6 +281,7 @@
       "Funciona con 2 pilas AAA",
       "Diseño delgado y fácil de limpiar"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Hoklee digital kitchen scale",
     "descripcion_en": "Up to 10 kg with 1 g precision, LCD display and tare function. Runs on 2 AAA batteries.",
     "caracteristicas_en": [
@@ -335,22 +291,16 @@
       "Tare function",
       "Runs on 2 AAA batteries",
       "Slim, easy-to-clean design"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "115",
     "publicado": true,
     "nombre": "Bolas de hidrogel decorativas",
-    "categoria": "home",
     "foto": "/img/hidrogel.webp",
     "precio": 13400,
     "precio_antes": 16700,
+    "categoria": "home",
     "descripcion": "Crecen al hidratarse. Para floreros, centros de mesa y manualidades. Varios colores.",
     "caracteristicas": [
       "Bolitas que absorben agua y crecen",
@@ -358,6 +308,7 @@
       "Varios colores disponibles",
       "Fáciles de usar"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Decorative water beads",
     "descripcion_en": "They grow in water. For vases, centrepieces and crafts. Assorted colours.",
     "caracteristicas_en": [
@@ -365,22 +316,16 @@
       "For vases, centrepieces and crafts",
       "Assorted colours",
       "Easy to use"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "101",
     "publicado": true,
     "nombre": "Moto eléctrica infantil 36V 800W",
-    "categoria": "toys",
     "foto": "/img/moto.webp",
     "precio": 1733400,
     "precio_antes": 2166700,
+    "categoria": "toys",
     "descripcion": "Hasta 20 km/h con selector de velocidad, batería 12Ah (unos 15 km por carga), frenos de disco y amortiguación. Soporta 80 kg. 4 colores.",
     "caracteristicas": [
       "Motor de 36 V y 800 W",
@@ -391,6 +336,7 @@
       "Rines 2.5-10, frenos de disco mecánicos y amortiguación",
       "Disponible en 4 colores"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Kids' electric motorbike 36V 800W",
     "descripcion_en": "Up to 20 km/h with speed selector, 12Ah battery (about 15 km per charge), disc brakes and suspension. Holds 80 kg. 4 colours.",
     "caracteristicas_en": [
@@ -401,22 +347,15 @@
       "Holds up to 80 kg",
       "2.5-10 rims, mechanical disc brakes and suspension",
       "Available in 4 colours"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "102",
     "publicado": true,
     "nombre": "Rifle eléctrico de bolas de gel",
-    "categoria": "toys",
-    "foto": "",
     "precio": 120000,
     "precio_antes": 150000,
+    "categoria": "toys",
     "descripcion": "Batería de litio 7,4 V, negro y rojo, con accesorios. Para mayores de 14 años.",
     "caracteristicas": [
       "Funcionamiento eléctrico",
@@ -426,6 +365,7 @@
       "Incluye accesorios",
       "Recomendado para mayores de 14 años"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Electric gel blaster",
     "descripcion_en": "7.4 V lithium battery, black and red, with accessories. Ages 14+.",
     "caracteristicas_en": [
@@ -435,22 +375,16 @@
       "Black and red design",
       "Accessories included",
       "Recommended for ages 14+"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "103",
     "publicado": true,
     "nombre": "Máquina para cortar cabello VGR V-052",
-    "categoria": "care",
     "foto": "/img/vgr.webp",
     "precio": 37400,
     "precio_antes": 46700,
+    "categoria": "care",
     "descripcion": "Cuchillas de acero, ajuste de longitud, batería recargable, uso con o sin cable USB. Incluye 4 peines guía.",
     "caracteristicas": [
       "Cuchillas de acero inoxidable para un corte preciso",
@@ -460,6 +394,7 @@
       "Diseño ergonómico",
       "Incluye cable USB, cepillo de limpieza, aceite lubricante y 4 peines guía"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "VGR V-052 hair clipper",
     "descripcion_en": "Steel blades, length adjustment, rechargeable battery, corded (USB) or cordless. 4 guide combs included.",
     "caracteristicas_en": [
@@ -469,22 +404,16 @@
       "Corded (USB) or cordless",
       "Ergonomic design",
       "Includes USB cable, cleaning brush, oil and 4 guide combs"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "104",
     "publicado": true,
     "nombre": "Consola SUP Mini 400 juegos",
-    "categoria": "toys",
     "foto": "/img/sup.webp",
     "precio": 30000,
     "precio_antes": 37500,
+    "categoria": "toys",
     "descripcion": "Pantalla de 3\", modo 2 jugadores con control incluido, batería recargable y cable para TV.",
     "caracteristicas": [
       "Pantalla LED de 3 pulgadas",
@@ -494,6 +423,7 @@
       "Se conecta al TV, incluye cable AV y cable de carga",
       "Compacta y fácil de llevar"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "SUP Mini console, 400 games",
     "descripcion_en": "3\" screen, 2-player mode with extra controller, rechargeable battery and TV cable.",
     "caracteristicas_en": [
@@ -503,47 +433,26 @@
       "Rechargeable battery",
       "Connects to the TV, AV and charging cables included",
       "Compact and portable"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
+    ]
   },
   {
     "id": "999",
     "publicado": true,
     "nombre": "Artículo de prueba (no comprar)",
-    "categoria": "home",
-    "foto": "",
     "precio": 5000,
     "precio_antes": 6250,
+    "categoria": "home",
     "descripcion": "Solo para probar pagos de la tienda. No se envía nada.",
     "caracteristicas": [
       "Producto de prueba de pagos",
       "No se envía ningún artículo"
     ],
+    "pedir_sugerencia": false,
     "nombre_en": "Test item (do not buy)",
     "descripcion_en": "Only for testing store payments. Nothing is shipped.",
     "caracteristicas_en": [
       "Payment test product",
       "No item is shipped"
-    ],
-    "pedir_sugerencia": false,
-    "sugerencia": {
-      "precio_referencia": null,
-      "fuentes": [],
-      "nota": ""
-    }
-  },
-  {
-    "publicado": false,
-    "nombre": "PRUEBA panel (no publicar)",
-    "foto": "/img/subidas/prueba-panel.jpg",
-    "precio": null,
-    "categoria": "home",
-    "pedir_sugerencia": true,
-    "id": "1000"
+    ]
   }
 ]
