@@ -510,5 +510,31 @@
       "fuentes": [],
       "nota": ""
     }
+  },
+  {
+    "id": "999",
+    "publicado": true,
+    "nombre": "Artículo de prueba (no comprar)",
+    "categoria": "home",
+    "foto": "",
+    "precio": 5000,
+    "precio_antes": 6250,
+    "descripcion": "Solo para probar pagos de la tienda. No se envía nada.",
+    "caracteristicas": [
+      "Producto de prueba de pagos",
+      "No se envía ningún artículo"
+    ],
+    "nombre_en": "Test item (do not buy)",
+    "descripcion_en": "Only for testing store payments. Nothing is shipped.",
+    "caracteristicas_en": [
+      "Payment test product",
+      "No item is shipped"
+    ],
+    "pedir_sugerencia": false,
+    "sugerencia": {
+      "precio_referencia": null,
+      "fuentes": [],
+      "nota": ""
+    }
   }
 ]

@@ -187,6 +187,18 @@ def main():
     with open(os.path.join(ROOT, "assets", "productos.js"), "w", encoding="utf-8") as f:
         f.write(js)
     ver = hashlib.sha1(js.encode()).hexdigest()[:8]
+    # Precios finales para el Worker de Bold (bold/worker.js lee {id:N,c:"…",p:N} y DCTO_FLASH de tienda.js).
+    tj = os.path.join(ROOT, "assets", "tienda.js")
+    with open(tj, encoding="utf-8") as f:
+        t = f.read()
+    bloque = ("// PRECIOS:inicio (generado por scripts/catalogo.py; no editar a mano)\nconst DCTO_FLASH = 0;\n"
+              + "".join('// {id:%s,c:"%s",p:%d}\n' % (p["id"], p["c"], p["p"]) for p in items if p["id"].isdigit())
+              + "// PRECIOS:fin")
+    t2, n = re.subn(r"// PRECIOS:inicio.*?// PRECIOS:fin", lambda m: bloque, t, count=1, flags=re.S)
+    if n != 1:
+        sys.exit("No encontré el bloque PRECIOS en assets/tienda.js; no se cambió nada.")
+    with open(tj, "w", encoding="utf-8") as f:
+        f.write(t2)
     for lang, rel in (("es", "index.html"), ("en", "en/index.html")):
         path = os.path.join(ROOT, rel)
         with open(path, encoding="utf-8") as f:

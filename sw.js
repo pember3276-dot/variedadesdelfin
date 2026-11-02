@@ -1,6 +1,6 @@
 // PWA: páginas desde la red (con copia offline), recursos estáticos desde caché.
-const V = "delfin-v4";
-const CORE = ["/", "/en/", "/assets/site.css", "/assets/app.js", "/assets/tienda.js", "/icons/icon-192.png", "/offline.html"];
+const V = "delfin-v6";
+const CORE = ["/", "/en/", "/assets/site.css?v=5", "/assets/logo.svg", "/assets/fonts/nunito.woff2", "/assets/app.js", "/assets/tienda.js", "/icons/icon-192.png", "/offline.html"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {
