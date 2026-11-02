@@ -66,6 +66,8 @@ const PRODUCTS = [
   d:{es:'Pantalla de 3", modo 2 jugadores con control incluido, batería recargable y cable para TV.',en:'3" screen, 2-player mode with extra controller, rechargeable battery and TV cable.'},
   f:{es:["Pantalla LED de 3 pulgadas","400 juegos clásicos","Modo para 2 jugadores, incluye control","Batería recargable","Se conecta al TV, incluye cable AV y cable de carga","Compacta y fácil de llevar"],
      en:["3-inch LED screen","400 classic games","2-player mode, controller included","Rechargeable battery","Connects to the TV, AV and charging cables included","Compact and portable"]}}
+ // PRUEBA de pago real con Bold ($5.000 tras el −20 %). Borrar esta línea después de la prueba.
+ ,{id:999,c:"home",p:6250,icon:true,n:{es:"Artículo de prueba (no comprar)",en:"Test item (do not buy)"},d:{es:"Solo para probar pagos de la tienda. No se envía nada.",en:"Only for testing store payments. Nothing is shipped."},f:{es:["Producto de prueba de pagos","No se envía ningún artículo"],en:["Payment test product","No item is shipped"]}}
 ];
 PRODUCTS.forEach(p => { p.flash = true; if (DCTO_FLASH) { p.antes = p.p; p.p = Math.ceil(p.p*(1-DCTO_FLASH)/100)*100; } });
 
