@@ -1,0 +1,30 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Picadora eléctrica de ajo 250 ml",
+  "precio": 13400,
+  "precio_antes": 16700,
+  "categoria": "home",
+  "descripcion": "Pica ajo, cebolla y otros ingredientes pequeños en segundos. Compacta y fácil de usar.",
+  "caracteristicas": [
+    "Funcionamiento eléctrico",
+    "Ideal para ajo y alimentos pequeños",
+    "Recipiente de 250 ml",
+    "Fácil y rápida de usar",
+    "Diseño práctico y compacto"
+  ],
+  "id": "117",
+  "creado": "2026-11-03T17:51",
+  "nombre_en": "Electric garlic chopper 250 ml",
+  "descripcion_en": "Chops garlic, onion and other small ingredients in seconds. Compact and easy to use.",
+  "caracteristicas_en": [
+    "Electric operation",
+    "Ideal for garlic and small foods",
+    "250 ml container",
+    "Quick and easy to use",
+    "Practical, compact design"
+  ],
+  "fotos": [
+    "/img/subidas/picadora-ajo.jpg"
+  ]
+}
