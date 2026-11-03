@@ -1,0 +1,28 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Enchufe inteligente Wi-Fi (Smart Plug)",
+  "precio": 26800,
+  "precio_antes": 33400,
+  "categoria": "tech",
+  "descripcion": "Prende y apaga tus aparatos desde el celular y programa horarios. Haz tu hogar más inteligente.",
+  "caracteristicas": [
+    "Control desde el celular",
+    "Conexión Wi-Fi",
+    "Programa horarios de encendido y apagado",
+    "Ideal para automatizar aparatos del hogar"
+  ],
+  "id": "118",
+  "creado": "2026-11-03T17:52",
+  "nombre_en": "Wi-Fi smart plug",
+  "descripcion_en": "Turn your appliances on and off from your phone and set schedules. Make your home smarter.",
+  "caracteristicas_en": [
+    "Control from your phone",
+    "Wi-Fi connection",
+    "Schedule on and off times",
+    "Great for automating home appliances"
+  ],
+  "fotos": [
+    "/img/subidas/smart-plug.jpg"
+  ]
+}

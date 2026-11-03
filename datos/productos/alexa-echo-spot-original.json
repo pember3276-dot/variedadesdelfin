@@ -1,0 +1,32 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Alexa Echo Spot original",
+  "precio": 506800,
+  "precio_antes": 633400,
+  "categoria": "tech",
+  "descripcion": "Parlante inteligente con Alexa integrada, pantalla redonda con reloj y clima, y control del hogar inteligente. Disponible en blanco y negro.",
+  "caracteristicas": [
+    "Alexa integrada: responde por voz",
+    "Pantalla con hora, clima y alarmas",
+    "Sonido potente",
+    "Controla luces y enchufes inteligentes",
+    "Controles de privacidad",
+    "Colores: blanco o negro"
+  ],
+  "id": "116",
+  "creado": "2026-11-03T17:50",
+  "nombre_en": "Original Alexa Echo Spot",
+  "descripcion_en": "Smart speaker with built-in Alexa, round display with clock and weather, and smart home control. Available in white and black.",
+  "caracteristicas_en": [
+    "Built-in Alexa voice assistant",
+    "Display with time, weather and alarms",
+    "Powerful sound",
+    "Controls smart lights and plugs",
+    "Privacy controls",
+    "Colours: white or black"
+  ],
+  "fotos": [
+    "/img/subidas/echo-spot.jpg"
+  ]
+}

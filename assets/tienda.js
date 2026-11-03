@@ -7,6 +7,10 @@ const L = document.documentElement.lang === "en" ? "en" : "es";
 
 // PRECIOS:inicio (generado por scripts/catalogo.py; no editar a mano)
 const DCTO_FLASH = 0;
+// {id:119,c:"tools",p:26800}
+// {id:118,c:"tech",p:26800}
+// {id:117,c:"home",p:13400}
+// {id:116,c:"tech",p:506800}
 // {id:105,c:"tech",p:666800}
 // {id:106,c:"tech",p:1066800}
 // {id:107,c:"tech",p:1180000}

@@ -1,0 +1,32 @@
+{
+  "publicado": true,
+  "destacado": false,
+  "nombre": "Kit de herramientas 46 piezas para hogar y carro",
+  "precio": 26800,
+  "precio_antes": 33400,
+  "categoria": "tools",
+  "descripcion": "Juego de copas, puntas y llave de trinquete en estuche rígido. Ideal para el hogar, el carro y la moto.",
+  "caracteristicas": [
+    "46 piezas",
+    "Juego de copas y puntas",
+    "Llave de trinquete",
+    "Extensiones, adaptadores y junta universal",
+    "Llave hexagonal",
+    "Estuche rígido con compartimentos"
+  ],
+  "id": "119",
+  "creado": "2026-11-03T17:53",
+  "nombre_en": "46-piece tool set for home and car",
+  "descripcion_en": "Socket and bit set with ratchet in a hard case. Ideal for home, car and motorbike.",
+  "caracteristicas_en": [
+    "46 pieces",
+    "Sockets and bits",
+    "Ratchet wrench",
+    "Extensions, adapters and universal joint",
+    "Hex key",
+    "Hard case with compartments"
+  ],
+  "fotos": [
+    "/img/subidas/kit-46-piezas.jpg"
+  ]
+}
