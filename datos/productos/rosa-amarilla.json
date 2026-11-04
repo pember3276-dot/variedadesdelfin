@@ -1,0 +1,11 @@
+{
+  "publicado": true,
+  "destacado": true,
+  "nombre": "Rosa amarilla",
+  "precio": 10000,
+  "categoria": "gifts",
+  "descripcion": "Rosa amarilla para decorar",
+  "fotos": [
+    "/img/subidas/rosa-amarilla-pjou-1.jpg"
+  ]
+}
