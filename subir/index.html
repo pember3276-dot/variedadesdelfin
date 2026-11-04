@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Subir productos | Variedades Delfín</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#54C5F5">
+<link rel="icon" href="/icons/icon-32.png">
+<link rel="apple-touch-icon" href="/icons/icon-180.png">
+<link rel="manifest" href="/subir/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/site.css?v=7">
+<style>
+/* Panel rápido para subir productos desde el celular. Guarda directo en GitHub (datos/productos e img/subidas);
+   el Action "Catálogo" arma la tienda en 2-3 minutos. La clave se guarda solo en este celular. */
+body{background:var(--pale)}
+.top{background:var(--celeste);color:#06384F;padding:14px 0 12px}
+.top .wrap{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.top h1{margin:0;font-size:20px;font-weight:800;line-height:1.2}
+.top a{color:#06384F;font-weight:700;font-size:14px}
+main.wrap{max-width:560px;padding-top:16px;padding-bottom:110px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff;border-radius:999px;padding:5px;margin-bottom:16px;border:1px solid var(--line)}
+.tabs button{border:0;background:transparent;border-radius:999px;padding:10px;font-weight:800;color:var(--muted);font-size:15px}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.card2{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:14px}
+label.f{display:block;font-weight:800;margin:0 0 6px;font-size:15px}
+.hint{color:var(--muted);font-size:14px;margin:4px 0 0}
+input[type=text],input[type=number],input[type=password],textarea,select{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--fg)}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ink)}
+textarea{min-height:84px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.picks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pick{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:2px dashed var(--celeste);background:var(--pale);border-radius:16px;padding:16px 8px;font-weight:800;color:var(--ink);text-align:center;min-height:92px}
+.pick svg{width:30px;height:30px}
+.pick input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.thumbs:empty{display:none}
+.th{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--pale);border:1px solid var(--line)}
+.th img,.th video{width:100%;height:100%;object-fit:cover;display:block}
+.th .x{position:absolute;top:4px;right:4px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-weight:800;line-height:28px;padding:0}
+.th .uno{position:absolute;left:4px;bottom:4px;background:var(--sun);color:var(--sun-ink);font-size:11px;font-weight:800;border-radius:999px;padding:1px 7px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-weight:700;font-size:14px;color:var(--fg)}
+.chips button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0;font-weight:700}
+.sw input{width:52px;height:30px;appearance:none;-webkit-appearance:none;background:#c9d6dc;border-radius:999px;position:relative;flex:none;cursor:pointer;transition:background .2s}
+.sw input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .2s var(--ease)}
+.sw input:checked{background:var(--wa)}
+.sw input:checked::after{transform:translateX(22px)}
+.precio{font-size:28px;font-weight:800;color:var(--ink)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:12px max(16px,env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom))}
+.bar .btn{width:100%;max-width:528px;margin:0 auto;display:flex;font-size:18px;padding:15px}
+.btn[disabled]{opacity:.55}
+.msg{border-radius:14px;padding:12px 14px;margin-bottom:14px;font-weight:700}
+.msg.ok{background:#E3F6EA;color:#14532D}
+.msg.err{background:#FDECEC;color:var(--err)}
+.msg.info{background:#fff;color:var(--fg);border:1px solid var(--line)}
+.lista .it{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.lista .it:first-child{border-top:0}
+.lista img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:var(--pale)}
+.lista .nm{font-weight:800;line-height:1.25}
+.lista .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.lista .ctl input[type=number]{width:130px;padding:8px 10px;font-size:16px}
+.mini{border:2px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-weight:800;font-size:14px;color:var(--fg)}
+.mini.on{background:var(--wa);border-color:var(--wa);color:#fff}
+.mini.star.on{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.mini.save{background:var(--ink);border-color:var(--ink);color:#fff}
+.mini.del{color:var(--err)}
+.mini.del.sure{background:var(--err);border-color:var(--err);color:#fff}
+.oculto img,.oculto .nm{opacity:.5}
+.steps{padding-left:20px;margin:8px 0}
+.steps li{margin:6px 0}
+.cargando{display:inline-block;width:18px;height:18px;border:3px solid rgba(255,255,255,.5);border-top-color:#fff;border-radius:50%;animation:g .8s linear infinite}
+@keyframes g{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.cargando{animation-duration:2s}.sw input,.sw input::after{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><h1>Subir productos</h1><a href="/" target="_blank" rel="noopener">Ver tienda</a></div></header>
+
+<main class="wrap" id="app">
+
+  <!-- 1. Primera vez en este celular: pegar la clave -->
+  <section id="vClave" hidden>
+    <div class="card2">
+      <h2 style="margin:0 0 6px;font-size:20px">Conectar este celular</h2>
+      <p class="hint" style="margin-bottom:12px">Se hace una sola vez. La clave queda guardada solo en este celular.</p>
+      <label class="f" for="clave">Clave de la tienda</label>
+      <input type="password" id="clave" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_…">
+      <p class="hint">¿Ya está conectada en otro celular? Allá, en <b>Ajustes</b>, toca «Copiar enlace para otro celular» y ábrelo aquí.</p>
+      <button class="btn alt" id="btnClave" style="width:100%;margin-top:14px">Conectar</button>
+      <div id="msgClave" style="margin-top:12px"></div>
+    </div>
+    <details class="card2">
+      <summary style="font-weight:800">¿Cómo saco la clave? (solo Daniel, 2 minutos)</summary>
+      <ol class="steps">
+        <li>Abre <a id="lnkToken" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">este enlace de GitHub</a> con la cuenta dueña de la tienda.</li>
+        <li>En <b>Repository access</b> elige <b>Only select repositories</b> y marca <b>variedadesdelfin</b>.</li>
+        <li>En <b>Permissions → Repository permissions → Contents</b> elige <b>Read and write</b>.</li>
+        <li>En <b>Expiration</b> elige <b>No expiration</b> (o un año).</li>
+        <li>Toca <b>Generate token</b>, copia la clave (empieza por <code>github_pat_</code>) y pégala arriba.</li>
+      </ol>
+      <p class="hint">Esa clave solo puede tocar los archivos de la tienda, nada más de la cuenta. Si se pierde un celular, bórrala en GitHub y saca otra.</p>
+    </details>
+  </section>
+
+  <!-- 2. Panel -->
+  <section id="vPanel" hidden>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tNuevo" aria-selected="true">Nuevo producto</button>
+      <button role="tab" id="tLista" aria-selected="false">Mis productos</button>
+    </div>
+    <div id="msg"></div>
+
+    <form id="fNuevo" novalidate>
+      <div class="card2">
+        <label class="f">Fotos <span class="hint" style="font-weight:600">(la primera sale en la tienda)</span></label>
+        <div class="picks">
+          <label class="pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Tomar foto<input type="file" accept="image/*" capture="environment" id="iCam"></label>
+          <label class="pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>Galería<input type="file" accept="image/*,video/*" multiple id="iGal"></label>
+        </div>
+        <div class="thumbs" id="thumbs"></div>
+        <p class="hint">Hasta 8 fotos y 2 videos cortos. Las fotos se ajustan solas.</p>
+      </div>
+
+      <div class="card2">
+        <label class="f" for="nombre">Nombre</label>
+        <input type="text" id="nombre" maxlength="90" placeholder="Ej: Parlante Bluetooth rojo" autocomplete="off">
+      </div>
+
+      <div class="card2">
+        <div class="row2">
+          <div><label class="f" for="costo">Costo</label><input type="number" id="costo" inputmode="numeric" min="0" step="100" placeholder="Opcional"></div>
+          <div><label class="f" for="precio">Precio venta</label><input type="number" id="precio" inputmode="numeric" min="0" step="100" placeholder="0"></div>
+        </div>
+        <p class="hint" id="hPrecio">Si pones el costo, el precio se calcula solo (costo ÷ 0,6, redondeado a $100). Puedes cambiarlo. El costo no se publica.</p>
+        <p class="precio" id="vPrecio" style="margin:8px 0 0">$0</p>
+      </div>
+
+      <div class="card2">
+        <label class="f">Categoría</label>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <div class="card2">
+        <label class="f" for="desc">Descripción <span class="hint" style="font-weight:600">(opcional)</span></label>
+        <textarea id="desc" maxlength="600" placeholder="Para qué sirve, medidas, colores…"></textarea>
+        <div class="sw" style="margin-top:8px"><span>Destacado (sale de primero)</span><input type="checkbox" id="dest"></div>
+      </div>
+    </form>
+
+    <div id="vLista" hidden>
+      <div class="card2"><div class="lista" id="lista"><p class="hint">Cargando…</p></div></div>
+    </div>
+
+    <details class="card2" id="ajustes">
+      <summary style="font-weight:800">Ajustes</summary>
+      <p class="hint">Instala este panel: menú del navegador → «Agregar a la pantalla de inicio».</p>
+      <button class="mini" id="btnLink" type="button" style="margin-top:8px">Copiar enlace para otro celular</button>
+      <p class="hint">Ese enlace lleva la clave: mándalo solo por chat privado (por ejemplo a Arelly) y bórralo después.</p>
+      <button class="mini del" id="btnSalir" type="button" style="margin-top:8px">Desconectar este celular</button>
+    </details>
+  </section>
+</main>
+
+<div class="bar" id="bar" hidden><button class="btn" id="btnPub" type="button">Publicar en la tienda</button></div>
+
+<script>
+(() => {
+  "use strict";
+  const REPO = "pember3276-dot/variedadesdelfin", RAMA = "main", API = "https://api.github.com/repos/" + REPO;
+  const MAX_FOTOS = 8, MAX_VIDEOS = 2, VIDEO_MB = 60, LADO = 1600;
+  const CATS = [["tech","Tecnología"],["home","Hogar y cocina"],["toys","Juguetes"],["tools","Herramientas"],["care","Cuidado personal"],
+    ["gifts","Regalos y detalles"],["stationery","Papelería"],["sweets","Dulcería"],["plush","Peluches"],["season","Temporada"],["misc","Variedades"]];
+  const $ = id => document.getElementById(id);
+  const fmt = n => "$" + Math.round(n || 0).toLocaleString("es-CO");
+  const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+                  set(k,v){ try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch(e){} } };
+  let clave = null, cat = store.get("delfin-cat") || "misc", media = [];
+
+  // Enlace de GitHub con los datos de la clave ya llenos (si GitHub los acepta).
+  $("lnkToken").href = "https://github.com/settings/personal-access-tokens/new?name=" + encodeURIComponent("Panel tienda celular") +
+    "&description=" + encodeURIComponent("Subir productos a variedadesdelfin.com") + "&target_name=pember3276-dot&expires_in=none&contents=write";
+
+  // ---------- GitHub ----------
+  async function gh(path, opt = {}) {
+    const r = await fetch(path.startsWith("http") ? path : API + path, { ...opt, headers: {
+      Authorization: "Bearer " + clave, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
+      ...(opt.body ? { "Content-Type": "application/json" } : {}), ...(opt.headers || {}) } });
+    if (!r.ok) { const e = new Error("GitHub " + r.status); e.status = r.status; try { e.info = await r.json(); } catch(_){} throw e; }
+    return r.status === 204 ? null : r.json();
+  }
+  const b64 = buf => { const u = new Uint8Array(buf); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); };
+
+  // Un solo cambio (commit) con todos los archivos: así el Action corre una sola vez.
+  async function guardar(archivos, mensaje, avance) {
+    const tree = [];
+    for (let i = 0; i < archivos.length; i++) {
+      const a = archivos[i];
+      if (a.borrar) { tree.push({ path: a.path, mode: "100644", type: "blob", sha: null }); continue; }
+      avance && avance(i, archivos.length);
+      const blob = a.bin ? await gh("/git/blobs", { method: "POST", body: JSON.stringify({ content: b64(await a.bin.arrayBuffer()), encoding: "base64" }) })
+                         : await gh("/git/blobs", { method: "POST", body: JSON.stringify({ content: a.texto, encoding: "utf-8" }) });
+      tree.push({ path: a.path, mode: "100644", type: "blob", sha: blob.sha });
+    }
+    for (let intento = 0; intento < 4; intento++) {
+      const ref = await gh("/git/ref/heads/" + RAMA);
+      const base = await gh("/git/commits/" + ref.object.sha);
+      const t = await gh("/git/trees", { method: "POST", body: JSON.stringify({ base_tree: base.tree.sha, tree }) });
+      const c = await gh("/git/commits", { method: "POST", body: JSON.stringify({ message: mensaje, tree: t.sha, parents: [ref.object.sha] }) });
+      try { await gh("/git/refs/heads/" + RAMA, { method: "PATCH", body: JSON.stringify({ sha: c.sha }) }); return c.sha; }
+      catch (e) { if (e.status !== 422 || intento === 3) throw e; await new Promise(r => setTimeout(r, 1500)); }
+    }
+  }
+  async function listar() {
+    const d = await gh("/contents/datos/productos?ref=" + RAMA + "&t=" + Date.now());
+    return d.filter(x => x.type === "file" && x.name.endsWith(".json"));
+  }
+  async function leer(path) {
+    const r = await gh("/contents/" + path.split("/").map(encodeURIComponent).join("/") + "?ref=" + RAMA + "&t=" + Date.now());
+    const txt = new TextDecoder().decode(Uint8Array.from(atob(r.content.replace(/\n/g, "")), c => c.charCodeAt(0)));
+    return JSON.parse(txt);
+  }
+
+  function errorTexto(e) {
+    if (!navigator.onLine) return "No hay internet. Revisa la conexión e intenta otra vez.";
+    if (e.status === 401) return "La clave no sirve o venció. Ve a Ajustes → Desconectar y pega una clave nueva.";
+    if (e.status === 403 || e.status === 404) return "La clave no tiene permiso de escribir en la tienda (falta Contents: Read and write en variedadesdelfin).";
+    if (e.status === 413 || e.status === 422) return "Algún archivo es muy pesado. Prueba con un video más corto.";
+    return "No se pudo guardar (" + (e.message || "error") + "). Intenta otra vez.";
+  }
+  function aviso(html, tipo, donde = "msg") { $(donde).innerHTML = html ? '<div class="msg ' + tipo + '">' + html + "</div>" : ""; }
+
+  // ---------- Conectar ----------
+  async function probar(k) {
+    clave = k.trim();
+    const repo = await gh("");
+    if (repo.permissions && repo.permissions.push === false) { const e = new Error("sin permiso"); e.status = 403; throw e; }
+  }
+  $("btnClave").onclick = async () => {
+    const k = $("clave").value.trim(); if (!k) return aviso("Pega la clave primero.", "err", "msgClave");
+    $("btnClave").disabled = true; aviso("Revisando…", "info", "msgClave");
+    try { await probar(k); store.set("delfin-clave", clave); aviso("", "", "msgClave"); mostrar(); }
+    catch (e) { clave = null; aviso(errorTexto(e), "err", "msgClave"); }
+    $("btnClave").disabled = false;
+  };
+  $("btnSalir").onclick = () => { store.set("delfin-clave", null); clave = null; location.hash = ""; mostrar(); };
+  $("btnLink").onclick = async () => {
+    const url = location.origin + "/subir/#clave=" + encodeURIComponent(clave);
+    try { await navigator.clipboard.writeText(url); $("btnLink").textContent = "Enlace copiado ✓"; }
+    catch (e) { prompt("Copia este enlace:", url); }
+  };
+
+  function mostrar() {
+    const ok = !!clave;
+    $("vClave").hidden = ok; $("vPanel").hidden = !ok; $("bar").hidden = !ok || $("tNuevo").getAttribute("aria-selected") !== "true";
+  }
+
+  // ---------- Formulario ----------
+  $("chips").innerHTML = CATS.map(([k, n]) => '<button type="button" data-c="' + k + '" aria-pressed="' + (k === cat) + '">' + n + "</button>").join("");
+  $("chips").onclick = e => { const b = e.target.closest("button"); if (!b) return; cat = b.dataset.c; store.set("delfin-cat", cat);
+    [...$("chips").children].forEach(x => x.setAttribute("aria-pressed", x === b)); };
+
+  const calcular = c => Math.ceil(c / 0.6 / 100) * 100;
+  let precioManual = false;
+  $("costo").oninput = () => { const c = +$("costo").value; if (c > 0 && !precioManual) $("precio").value = calcular(c); pintarPrecio(); };
+  $("precio").oninput = () => { precioManual = $("precio").value !== ""; pintarPrecio(); };
+  function pintarPrecio() { $("vPrecio").textContent = fmt(+$("precio").value); }
+
+  async function reducir(file) {
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((ok, mal) => { const i = new Image(); i.onload = () => ok(i); i.onerror = mal; i.src = url; });
+      const k = Math.min(1, LADO / Math.max(img.naturalWidth, img.naturalHeight));
+      const cv = document.createElement("canvas"); cv.width = Math.round(img.naturalWidth * k); cv.height = Math.round(img.naturalHeight * k);
+      const cx = cv.getContext("2d"); cx.fillStyle = "#fff"; cx.fillRect(0, 0, cv.width, cv.height); cx.drawImage(img, 0, 0, cv.width, cv.height);
+      return await new Promise(ok => cv.toBlob(ok, "image/jpeg", 0.86));
+    } finally { URL.revokeObjectURL(url); }
+  }
+  async function agregar(files) {
+    for (const f of files) {
+      const video = f.type.startsWith("video/");
+      if (video) {
+        if (media.filter(m => m.video).length >= MAX_VIDEOS) { aviso("Máximo " + MAX_VIDEOS + " videos.", "err"); continue; }
+        if (f.size > VIDEO_MB * 1048576) { aviso("Ese video pesa más de " + VIDEO_MB + " MB. Recórtalo o envía uno más corto.", "err"); continue; }
+        const ext = (f.name.split(".").pop() || "mp4").toLowerCase();
+        media.push({ video: true, blob: f, ext: /^(mp4|mov|webm|m4v|3gp)$/.test(ext) ? ext : "mp4", url: URL.createObjectURL(f) });
+      } else {
+        if (media.filter(m => !m.video).length >= MAX_FOTOS) { aviso("Máximo " + MAX_FOTOS + " fotos.", "err"); continue; }
+        try { const b = await reducir(f); media.push({ blob: b, ext: "jpg", url: URL.createObjectURL(b) }); }
+        catch (e) { aviso("No se pudo leer una foto. Prueba con otra.", "err"); }
+      }
+    }
+    pintarFotos();
+  }
+  function pintarFotos() {
+    let n = 0;
+    $("thumbs").innerHTML = media.map((m, i) => '<div class="th">' + (m.video ? '<video src="' + m.url + '" muted playsinline></video>' : '<img src="' + m.url + '" alt="">') +
+      (!m.video && n++ === 0 ? '<span class="uno">Portada</span>' : "") + '<button type="button" class="x" data-i="' + i + '" aria-label="Quitar">×</button></div>').join("");
+  }
+  $("thumbs").onclick = e => { const b = e.target.closest(".x"); if (!b) return; const m = media.splice(+b.dataset.i, 1)[0]; URL.revokeObjectURL(m.url); pintarFotos(); };
+  $("iCam").onchange = e => { agregar([...e.target.files]); e.target.value = ""; };
+  $("iGal").onchange = e => { agregar([...e.target.files]); e.target.value = ""; };
+
+  const slug = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "producto";
+
+  $("btnPub").onclick = async () => {
+    const nombre = $("nombre").value.trim(), precio = Math.round(+$("precio").value);
+    if (!nombre) { aviso("Escribe el nombre del producto.", "err"); $("nombre").focus(); return; }
+    if (!(precio > 0)) { aviso("Pon el precio de venta (o el costo para calcularlo).", "err"); $("precio").focus(); return; }
+    if (!media.some(m => !m.video)) { aviso("Agrega al menos una foto.", "err"); return; }
+    const btn = $("btnPub"); btn.disabled = true;
+    const estado = t => { btn.innerHTML = '<span class="cargando"></span> ' + t; };
+    estado("Preparando…"); aviso("", "");
+    try {
+      const existentes = new Set((await listar()).map(x => x.name));
+      let base = slug(nombre), s = base, k = 2;
+      while (existentes.has(s + ".json")) s = base + "-" + k++;
+      const sello = Date.now().toString(36).slice(-4);
+      const archivos = [], fotos = [], videos = [];
+      media.forEach((m, i) => {
+        const path = "img/subidas/" + s + "-" + sello + "-" + (i + 1) + "." + m.ext;
+        archivos.push({ path, bin: m.blob });
+        (m.video ? videos : fotos).push("/" + path);
+      });
+      const d = { publicado: true, destacado: $("dest").checked, nombre, precio, categoria: cat,
+                  descripcion: $("desc").value.trim(), fotos };
+      if (videos.length) d.videos = videos;
+      archivos.push({ path: "datos/productos/" + s + ".json", texto: JSON.stringify(d, null, 2) + "\n" });
+      await guardar(archivos, "Producto nuevo desde el celular: " + nombre, (i, n) => estado("Subiendo " + (i + 1) + " de " + n + "…"));
+      media.forEach(m => URL.revokeObjectURL(m.url)); media = []; pintarFotos();
+      ["nombre", "costo", "precio", "desc"].forEach(id => $(id).value = ""); $("dest").checked = false; precioManual = false; pintarPrecio();
+      aviso("¡Listo! <b>" + nombre.replace(/</g, "&lt;") + "</b> sale en la tienda en unos 3 minutos.", "ok");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (e) { aviso(errorTexto(e), "err"); }
+    btn.disabled = false; btn.textContent = "Publicar en la tienda";
+  };
+
+  // ---------- Mis productos ----------
+  function pestana(nuevo) {
+    $("tNuevo").setAttribute("aria-selected", nuevo); $("tLista").setAttribute("aria-selected", !nuevo);
+    $("fNuevo").hidden = !nuevo; $("vLista").hidden = nuevo; $("bar").hidden = !nuevo; aviso("", "");
+    if (!nuevo) cargarLista();
+  }
+  $("tNuevo").onclick = () => pestana(true);
+  $("tLista").onclick = () => pestana(false);
+
+  let prods = [];
+  async function cargarLista() {
+    $("lista").innerHTML = '<p class="hint">Cargando…</p>';
+    try {
+      const fs = await listar();
+      prods = await Promise.all(fs.map(async f => ({ path: f.path, d: await leer(f.path) })));
+      prods.sort((a, b) => (b.d.destacado - a.d.destacado) || String(b.d.creado || "9").localeCompare(String(a.d.creado || "9")));
+      pintarLista();
+    } catch (e) { $("lista").innerHTML = '<p class="msg err">' + errorTexto(e) + "</p>"; }
+  }
+  const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  function pintarLista() {
+    if (!prods.length) { $("lista").innerHTML = '<p class="hint">Todavía no hay productos.</p>'; return; }
+    $("lista").innerHTML = prods.map((p, i) => {
+      const f = (p.d.fotos || [])[0], src = f ? encodeURI(f) : "/icons/icon-192.png";
+      return '<div class="it' + (p.d.publicado ? "" : " oculto") + '" data-i="' + i + '"><img src="' + esc(src) + '" alt="" loading="lazy">' +
+        '<div><div class="nm">' + esc(p.d.nombre) + '</div><div class="hint">' + fmt(p.d.precio) + (p.d.publicado ? "" : " · escondido") + "</div>" +
+        '<div class="ctl"><button type="button" class="mini' + (p.d.publicado ? " on" : "") + '" data-a="pub">' + (p.d.publicado ? "En la tienda" : "Agotado") + "</button>" +
+        '<button type="button" class="mini star' + (p.d.destacado ? " on" : "") + '" data-a="dest">★ Destacado</button>' +
+        '<button type="button" class="mini" data-a="edit">Cambiar precio</button>' +
+        '<button type="button" class="mini del" data-a="del">Borrar</button></div>' +
+        '<div class="ctl" data-edit hidden><input type="number" inputmode="numeric" min="0" step="100" value="' + esc(p.d.precio) + '" aria-label="Precio nuevo"><button type="button" class="mini save" data-a="precio">Guardar</button></div>' +
+        "</div></div>";
+    }).join("");
+  }
+  $("lista").onclick = async e => {
+    const b = e.target.closest("button[data-a]"); if (!b || b.disabled) return;
+    const it = b.closest(".it"), p = prods[+it.dataset.i], a = b.dataset.a;
+    if (a === "edit") { it.querySelector("[data-edit]").hidden = false; it.querySelector("[data-edit] input").focus(); return; }
+    if (a === "del" && !b.classList.contains("sure")) { b.classList.add("sure"); b.textContent = "¿Seguro? Toca otra vez"; setTimeout(() => { b.classList.remove("sure"); b.textContent = "Borrar"; }, 4000); return; }
+    const d = { ...p.d }; let archivos, msg;
+    if (a === "pub") { d.publicado = !d.publicado; msg = (d.publicado ? "Mostrar: " : "Agotado: ") + d.nombre; }
+    if (a === "dest") { d.destacado = !d.destacado; msg = (d.destacado ? "Destacar: " : "Quitar destacado: ") + d.nombre; }
+    if (a === "precio") { const v = Math.round(+it.querySelector("[data-edit] input").value); if (!(v > 0)) return; d.precio = v; msg = "Precio de " + d.nombre + ": " + v; }
+    archivos = a === "del" ? [{ path: p.path, borrar: true }] : [{ path: p.path, texto: JSON.stringify(d, null, 2) + "\n" }];
+    if (a === "del") msg = "Borrar producto: " + d.nombre;
+    it.querySelectorAll("button").forEach(x => x.disabled = true); b.innerHTML = "Guardando…";
+    try {
+      await guardar(archivos, msg + " (desde el celular)");
+      if (a === "del") prods.splice(+it.dataset.i, 1); else p.d = d;
+      pintarLista(); aviso("Guardado. La tienda se actualiza en unos 3 minutos.", "ok");
+    } catch (err) { aviso(errorTexto(err), "err"); pintarLista(); }
+  };
+
+  // ---------- Inicio ----------
+  pintarPrecio();
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (h.get("clave")) { // enlace copiado desde otro celular
+    history.replaceState(null, "", location.pathname);
+    $("clave").value = h.get("clave"); clave = null; mostrar(); $("btnClave").click();
+  } else { clave = store.get("delfin-clave"); mostrar(); }
+})();
+</script>
+</body>
+</html>
