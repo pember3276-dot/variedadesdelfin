@@ -21,6 +21,7 @@
 
 ## Productos publicados
 <!-- PRODUCTOS:inicio (generado por scripts/catalogo.py) -->
+- Rosa amarilla: $10.000 COP. Regalos y detalles. Rosa amarilla para decorar
 - peluche toy story: $53.500 (antes $70.000) COP. Peluches. peluches toy story
 - Kit de herramientas 46 piezas para hogar y carro: $26.800 (antes $33.400) COP. Herramientas. Juego de copas, puntas y llave de trinquete en estuche rígido. Ideal para el hogar, el carro y la moto.
 - Enchufe inteligente Wi-Fi (Smart Plug): $26.800 (antes $33.400) COP. Tecnología. Prende y apaga tus aparatos desde el celular y programa horarios. Haz tu hogar más inteligente.
