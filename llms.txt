@@ -1,7 +1,43 @@
 # Variedades Delfín
-> Fotocopias, impresiones, regalos, papelería, dulcería, peluches y variedades en Calle 63 #61-23, BellaVista, Bello (Antioquia, Colombia). Abierta todos los días de 9:00 a.m. a 8:00 p.m. Pedidos por WhatsApp +57 310 379 0554 con domicilio en Bello y Medellín.
+> Almacén de barrio en Calle 63 #61-23, barrio BellaVista, Bello (Antioquia, Colombia), cerca de Medellín. Fotocopias, impresiones, papelería, útiles escolares, regalos, peluches, dulcería, artículos de temporada y ofertas en tecnología, hogar, herramientas y juguetes. Abierto todos los días de 9:00 a.m. a 8:00 p.m. Pedidos por WhatsApp +57 310 379 0554 con domicilio en Bello y Medellín.
 
-- [Tienda y ofertas flash](https://variedadesdelfin.com/): catálogo con precios en COP y pedido por WhatsApp
+## Datos clave
+- Nombre: Variedades Delfín
+- Dirección: Calle 63 #61-23, BellaVista, Bello, Antioquia, Colombia
+- Mapa: https://maps.google.com/?cid=7993781912345638077
+- Horario: todos los días, 9:00 a.m. a 8:00 p.m.
+- WhatsApp y teléfono: +57 310 379 0554
+- Correo: arelly3276@gmail.com
+- Servicios en tienda: fotocopias e impresiones
+- Entrega: recoger gratis en la tienda o domicilio en Bello y Medellín (valor según zona)
+- Pagos: efectivo, Nequi, Daviplata, transferencia Bancolombia, PSE y tarjeta (link de pago seguro)
+- Cómo pedir: armar el pedido en https://variedadesdelfin.com/ y enviarlo por WhatsApp; la tienda confirma disponibilidad y valor final
+
+## Páginas
+- [Tienda y ofertas](https://variedadesdelfin.com/): catálogo con precios en COP y pedido por WhatsApp
 - [Shop in English](https://variedadesdelfin.com/en/)
 - [Términos y condiciones](https://variedadesdelfin.com/terminos-y-condiciones/): entregas, garantía, retracto
 - [Política de privacidad](https://variedadesdelfin.com/politica-de-privacidad/)
+
+## Productos publicados
+<!-- PRODUCTOS:inicio (generado por scripts/catalogo.py) -->
+- peluche toy story: $53.500 (antes $70.000) COP. Peluches. peluches toy story
+- Kit de herramientas 46 piezas para hogar y carro: $26.800 (antes $33.400) COP. Herramientas. Juego de copas, puntas y llave de trinquete en estuche rígido. Ideal para el hogar, el carro y la moto.
+- Enchufe inteligente Wi-Fi (Smart Plug): $26.800 (antes $33.400) COP. Tecnología. Prende y apaga tus aparatos desde el celular y programa horarios. Haz tu hogar más inteligente.
+- Picadora eléctrica de ajo 250 ml: $13.400 (antes $16.700) COP. Hogar y cocina. Pica ajo, cebolla y otros ingredientes pequeños en segundos. Compacta y fácil de usar.
+- Alexa Echo Spot original: $506.800 (antes $633.400) COP. Tecnología. Parlante inteligente con Alexa integrada, pantalla redonda con reloj y clima, y control del hogar inteligente. Disponible en blanco y negro.
+- Smart TV 32" HD Premium Gold: $666.800 (antes $833.400) COP. Tecnología. Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.
+- Smart TV 40" Full HD Premium Gold: $1.066.800 (antes $1.333.400) COP. Tecnología. Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.
+- Smart TV 43" Full HD Premium Gold: $1.180.000 (antes $1.475.000) COP. Tecnología. Whale TV con Netflix, YouTube y más. Bluetooth, USB, HDMI, sonido Hi-Fi y doble control universal.
+- Tablet infantil Nodizz NPAD702: $293.400 (antes $366.700) COP. Tecnología. Pantalla de 7", 2 GB RAM, 32 GB, Android 13, Wi-Fi, control parental y forro protector. Incluye accesorios.
+- Parlante Booms Box 3: $160.000 (antes $200.000) COP. Tecnología. Bluetooth, USB y micro SD, doble bajo, resistente a salpicaduras, batería de larga duración.
+- Kit de herramientas multifuncional: $160.000 (antes $200.000) COP. Herramientas. Taladro inalámbrico con baterías, martillo, alicates, llave ajustable, destornilladores, brocas y más, en estuche.
+- Hidrolavadora portátil doble batería 48V: $64.000 (antes $80.000) COP. Herramientas. Dos baterías recargables, cargador, manguera de extensión, boquillas y maleta.
+- Pulidora inalámbrica Thwjiang: $117.400 (antes $146.700) COP. Herramientas. Batería extraíble, discos de corte de 3", cargador y maletín. Para metal, madera y más.
+- Cafetera Sokany 6 tazas: $120.000 (antes $150.000) COP. Hogar y cocina. 750 ml, 650 W, jarra de vidrio, programable y temperatura constante.
+- Balanza digital de cocina Hoklee: $26.800 (antes $33.400) COP. Hogar y cocina. Hasta 10 kg con precisión de 1 g, pantalla LCD y función tara. Funciona con 2 pilas AAA.
+- Bolas de hidrogel decorativas: $13.400 (antes $16.700) COP. Hogar y cocina. Crecen al hidratarse. Para floreros, centros de mesa y manualidades. Varios colores.
+- Moto eléctrica infantil 36V 800W: $1.733.400 (antes $2.166.700) COP. Juguetes. Hasta 20 km/h con selector de velocidad, batería 12Ah (unos 15 km por carga), frenos de disco y amortiguación. Soporta 80 kg. 4 colores.
+- Máquina para cortar cabello VGR V-052: $37.400 (antes $46.700) COP. Cuidado personal. Cuchillas de acero, ajuste de longitud, batería recargable, uso con o sin cable USB. Incluye 4 peines guía.
+- Consola SUP Mini 400 juegos: $30.000 (antes $37.500) COP. Juguetes. Pantalla de 3", modo 2 jugadores con control incluido, batería recargable y cable para TV.
+<!-- PRODUCTOS:fin -->
