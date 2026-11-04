@@ -361,6 +361,35 @@ def itemlist(items, lang):
     return json.dumps(ld, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 
+
+def llms_y_sitemap(items):
+    """Lista de productos en llms.txt (para buscadores con IA) y fecha del inicio en sitemap.xml."""
+    ruta = os.path.join(ROOT, "llms.txt")
+    if os.path.exists(ruta):
+        with open(ruta, encoding="utf-8") as f:
+            t = f.read()
+        lineas = []
+        for p in items:
+            precio = fmtp(p["p"]) + (f" (antes {fmtp(p['antes'])})" if p.get("antes") else "")
+            desc = p["d"]["es"].replace("\n", " ").strip()
+            lineas.append(f"- {p['n']['es']}: {precio} COP. {CAT[p['c']]['es']}." + (f" {desc}" if desc else ""))
+        bloque = ("<!-- PRODUCTOS:inicio (generado por scripts/catalogo.py) -->\n"
+                  + "".join(l + "\n" for l in lineas) + "<!-- PRODUCTOS:fin -->")
+        t2 = re.sub(r"<!-- PRODUCTOS:inicio.*?<!-- PRODUCTOS:fin -->", lambda m: bloque, t, count=1, flags=re.S)
+        if t2 != t:
+            with open(ruta, "w", encoding="utf-8") as f:
+                f.write(t2)
+    ruta = os.path.join(ROOT, "sitemap.xml")
+    if os.path.exists(ruta):
+        with open(ruta, encoding="utf-8") as f:
+            sm = f.read()
+        hoy = time.strftime("%Y-%m-%d", time.gmtime())
+        sm2 = re.sub(r"(<loc>https://variedadesdelfin\.com/(?:en/)?</loc><lastmod>)[0-9-]+", lambda m: m.group(1) + hoy, sm)
+        if sm2 != sm:
+            with open(ruta, "w", encoding="utf-8") as f:
+                f.write(sm2)
+
+
 def sub1(pat, repl, s, que):
     s2, n = re.subn(pat, lambda m: repl(m), s, count=1, flags=re.S)
     if n != 1:
@@ -413,6 +442,7 @@ def main():
             s = sub1(r'<script src="/assets/tienda\.js', lambda m: tag + "\n" + m.group(0), s, "tienda.js")
         with open(path, "w", encoding="utf-8") as f:
             f.write(s)
+    llms_y_sitemap(items)
     print(f"Catálogo listo: {len(items)} productos publicados (productos.js v={ver}).")
 
 
