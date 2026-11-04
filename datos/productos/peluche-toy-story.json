@@ -1,0 +1,12 @@
+{
+  "nombre": "peluche toy story",
+  "fotos": [
+    "/img/subidas/WhatsApp Image 2026-11-04 at 12.15.07 PM.jpeg"
+  ],
+  "precio": 53500,
+  "categoria": "plush",
+  "descripcion": "peluches toy story",
+  "publicado": true,
+  "destacado": true,
+  "precio_antes": 70000
+}
