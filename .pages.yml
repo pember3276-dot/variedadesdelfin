@@ -8,6 +8,7 @@ media:
 content:
   - name: productos
     label: Productos
+    description: Aquí agregas, cambias o quitas productos de la tienda. Al guardar, la página se actualiza sola en unos minutos.
     type: collection
     path: datos/productos
     format: json
@@ -23,10 +24,12 @@ content:
     fields:
       - name: nombre
         label: Nombre
+        description: Así se verá el producto en la tienda.
         type: string
         required: true
       - name: fotos
         label: Fotos y videos (la primera foto sale en la tienda)
+        description: Toca para subir desde la galería del celular. Hasta 10 archivos.
         type: image
         options:
           extensions: [jpg, jpeg, png, webp, mp4, mov, webm, m4v, 3gp]
@@ -40,12 +43,14 @@ content:
           multiple: true
       - name: precio
         label: Precio (pesos, sin puntos)
+        description: Ejemplo 25000 para $25.000.
         type: number
         required: true
         options:
           min: 0
       - name: categoria
         label: Categoría
+        description: Sección de la tienda donde aparece.
         type: select
         default: misc
         options:
@@ -63,9 +68,11 @@ content:
             - { name: misc, label: Variedades }
       - name: descripcion
         label: Descripción
+        description: Cuenta para qué sirve, medidas, colores o lo que el cliente necesite saber.
         type: text
       - name: publicado
         label: Mostrar en la tienda
+        description: Apágalo para esconder el producto sin borrarlo (por ejemplo, si se agotó).
         type: boolean
         default: true
       - name: destacado
@@ -79,6 +86,7 @@ content:
           min: 0
       - name: caracteristicas
         label: Detalles (opcional)
+        description: Un detalle por renglón, por ejemplo Incluye pilas.
         type: string
         list: true
       # Campos internos: no se muestran en el panel, pero se conservan.
